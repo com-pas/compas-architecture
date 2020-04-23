@@ -1,5 +1,8 @@
 # CoMPAS Architecture
 
+Interested in contributing? Please read carefully the [CONTRIBUTING guidelines](https://github.com/com-pas/contributing/blob/master/CONTRIBUTING.md).
+
+
 ## Overall functional block diagram
 ![CoMPAS functional block diagram](/functional%20diagrams/CoMPAS%20functional%20block%20diagram%20v4.png)
 
