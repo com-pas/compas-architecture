@@ -6,12 +6,12 @@ Interested in contributing? Please read carefully the [CONTRIBUTING guidelines](
 ## Functional architecture
 
 ### Overall functional block diagram
-![CoMPAS functional block diagram](/functional%20diagrams/CoMPAS%20functional%20block%20diagram%20v4.svg)
+![CoMPAS functional block diagram](/functional-diagrams/CoMPAS_functional_block_diagram_v1.svg)
 
 ### System Configuration Tool (SCT) functional diagram
-![SCT functional diagram](/functional%20diagrams/SCT%20functional%20diagram%20v1.svg)
+![SCT functional diagram](/functional-diagrams/SCT_functional_diagram_v1.svg)
 
 
 ## Technical architecture
 ### Overview
-![CoMPAS technical overview](/technical-overview/CoMPAS%20technical%20architecture%20overview.svg)
+![CoMPAS technical overview](/technical-overview/CoMPAS_technical_architecture_overview.svg)
