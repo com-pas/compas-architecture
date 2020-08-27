@@ -29,6 +29,7 @@ An initial survey was taken to determine some technologies we could use:
 |                                | No code technology | Non developper user can build their own user story built on predevelopped blocks | No many opensource solution and most of them are proprietary | |
 |                                | Typescript or Javascript | | | | No experience with Typescript, but it seems richer than Python for example. I don't know how easy it is in setting up related to Python. |
 |                                | Bash | | | | It depends on the tasks to do, but bash can do most of the scripting tasks. Easy and fully integrated in Linux. |
+|                                | Groovy | | | | |
 | APIs                           | REST, Message queue such as Kafka? | | | | REST is a good standard, yes. Depends on the tasks of the APIs. |
 |                                | OpenAPI for REST | | | | | 
 | XML processing & file database | sax.js             | Memory efficient. Don't need to have XML file sized RAM | Needs to track state while parsing due to streaming nature of API | https://github.com/StevenLooman/saxpath | |
