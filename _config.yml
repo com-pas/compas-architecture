@@ -3,10 +3,6 @@ title:            CoMPAS Architecture
 tagline:          'Architecture of the CoMPAS project'
 baseurl:          /
 
-gems:           [jekyll-paginate]
-paginate:       5
-paginate_path:  "page:num"
-
 # Custom vars
 version:          0.0.1
 
