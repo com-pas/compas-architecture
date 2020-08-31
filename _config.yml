@@ -1,1 +1,20 @@
-theme: jekyll-theme-minimal
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            CoMPAS Architecture
+tagline:          'Architecture of the CoMPAS project'
+baseurl:          /
+
+paginate:         5
+
+# Custom vars
+version:          0.0.1
+
+github:
+  repo:           https://github.com/com-pas/compas-architecture
