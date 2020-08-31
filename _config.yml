@@ -1,7 +1,6 @@
 # Setup
 title:            CoMPAS Architecture
 tagline:          'Architecture of the CoMPAS project'
-baseurl:          /
 
 # Custom vars
 version:          0.0.1
