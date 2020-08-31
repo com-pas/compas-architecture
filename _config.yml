@@ -1,7 +1,7 @@
 # Setup
 title:            CoMPAS Architecture
 tagline:          'Architecture of the CoMPAS project'
-baseurl:          /index.html
+baseurl:          /
 
 paginate:         5
 
