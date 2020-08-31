@@ -1,3 +1,9 @@
+# Dependencies
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+
 # Setup
 title:            CoMPAS Architecture
 tagline:          'Architecture of the CoMPAS project'
