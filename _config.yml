@@ -10,6 +10,6 @@ version:          0.0.1
 github:
   repo:           https://github.com/com-pas/compas-architecture
 
-github_username:  com-pas
+github_username:  Flurb
 git_repo:         compas-architecture
-git_branch:    PAGES
+git_branch:       PAGES
