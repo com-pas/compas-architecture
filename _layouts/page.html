@@ -4,12 +4,13 @@ layout: default
 
 <div class="page">
   <h1 class="page-title">{{ page.title }}</h1>
-  {{ content }}
 
-  <a href=https://www.github.com/{{ site.github_username }}/{{ site.git_repo }}/blob/master/{{ page.path }} class="gitbutton pill">
+  <a href=https://www.github.com/{{ site.github_username }}/{{ site.git_repo }}/blob/{{ site.git_branch }}/{{ page.path }} class="gitbutton pill">
     <span class="icon medium">
       {% include git-logo.html %}
     </span>
     Edit on GitHub!
   </a>
+
+  {{ content }}
 </div>
