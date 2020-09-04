@@ -52,12 +52,6 @@ html {
  * out above content in mobile and later moves to the side with wider viewports.
  */
 
- .right-sidebar {
-  text-align: center;
-  color: #303030;
-  background-color: #fff;
- }
-
 .sidebar {
   text-align: center;
   padding: 2rem 1rem;
@@ -72,9 +66,6 @@ html {
     bottom: 0;
     width: 21rem;
     text-align: left;
-  }
-  .right-sidebar {
-    width: 18rem;
   }
 }
 
