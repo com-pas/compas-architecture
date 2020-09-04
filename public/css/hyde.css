@@ -54,10 +54,8 @@ html {
 
  .right-sidebar {
   text-align: center;
-  padding: 2rem 1rem;
   color: #303030;
   background-color: #fff;
-  right: 0;
  }
 
 .sidebar {
@@ -76,12 +74,7 @@ html {
     text-align: left;
   }
   .right-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 21rem;
-    text-align: left;
+    width: 18rem;
   }
 }
 
