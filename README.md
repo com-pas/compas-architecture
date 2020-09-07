@@ -20,8 +20,8 @@ Refer to [GLOSSARY](./GLOSSARY.md) for technical terms and acronyms.
 ### Technnology Survey
 An initial survey was taken to determine some technologies we could use:
 
-| Technology                     | Name Technology | Benfits | Challenges | Reference Project | Opinion Rob |
-| ------------------------------ |:---------------:| -------:| ----------:| -----------------:| -------:|
+| Technology                     | Name Technology | Benfits | Challenges | Reference Project | Opinion Rob | Opinion Mohamed |
+| ------------------------------ |:---------------:| -------:| ----------:| -----------------:| -------:| -----------:|
 | Microservices (cross-platform) | Java Spring or Python Flask | Isolation of features in microservices speed up the development | Limiting number of microservices to a manageable number. | | I don't have experience with Python Flask, development is also not very active. I do have experience with Java Spring, and I think it's a great choice!  |
 |                                | NestJS with NodeJS | | | | No experience, but NodeJS is a good candidate. NodeJS seems to have some performance issues with heavy computing (downside) |
 |                                | Go Micro | | | | No experience, but very active development. Looks interesting! I also have some experience with the Go language. |
@@ -34,8 +34,9 @@ An initial survey was taken to determine some technologies we could use:
 |                                | OpenAPI for REST | | | | | 
 | XML processing & file database | sax.js             | Memory efficient. Don't need to have XML file sized RAM | Needs to track state while parsing due to streaming nature of API | https://github.com/StevenLooman/saxpath | |
 |                                | xQuery, XSLT, XPath|    Standard technologies for XML processing and XML DB querying | Overlapping use cases of very different technologies | https://github.com/BaseXdb/basex | |
-|                                | RiseClipse | Validates SCL files more precisely than with XSD (using rules expressed in OCL - Object Constraint Language) also validates CIM files | | https://github.com/riseclipse | RiseClipse has proven itself, been working with it in past projects. Good candidate! Also dedicated to IEC standards, so perfect. |
+|                                | RiseClipse | Validates SCL files more precisely than with XSD (using rules expressed in OCL - Object Constraint Language) also validates CIM files | | https://github.com/riseclipse | RiseClipse has proven itself, been working with it in past projects. Good candidate! Also dedicated to IEC standards, so perfect. | It's plateform dependent. Plus XSD is a structure-based grammar for XML even though it give some features for defining rule, it can't be compared to OCL. XML comes with other schema language to define any kind of constrains : SCHEMATRON.|
 |                                | xerces? | fast, work well with big files | | | |
+|                                | Schematron | Schematron is a simple and powerful rule-based Schema Language for making assertions about patterns found in XML documents. It relies almost entirely on XPath query patterns for defining rules and checks. For manipulating XML, it can do anything OCL can do, and more| | | http://schematron.com/, http://xml.coverpages.org/schematron.html,https://github.com/Schematron| In term of manipulating xml, there nothing better than xml technologies, in my opinion|
 |                                | Node - fastXML | | | | | |
 | Managing microservices         | container based Microservices using Kubernetes? | | | | To keep microservices managed, a containerized architecture is definitely the way to go. |
 | XML versioning                 | Version through file repository or database, see below | Versioning is automatic if file repo or database are chosen to include this feature | | |
@@ -44,7 +45,7 @@ An initial survey was taken to determine some technologies we could use:
 | File repository vs database    | GIT SCM vs Datomic | Both technologies model time meaningfully, Datomic with schema and git with unstructured data | | https://git-scm.com/ vs https://www.datomic.com/ | |
 |                                | SQLite | Embedded in app. No separate server needed. | Not as powerful as database server. | https://sqlite.org/index.html | I think a graph database is the way to go here.  |
 |                                | I would go with file repository for big XML files. | | | | OK. |
-|                                | PostgreSQL | | | | I think a graph database is the way to go here. |
+|                                | PostgreSQL | | | | I think a graph database is the way to go here. | PostgreSQL has XML type (Oracle has its own XML TYPE). It can store XML as it is. One can quiries directly in stored XML with basic SELECT and PostgreSQL provided routines based on XPATH|
 |                                | Neo4J | | | | Good candidate, native XML database. |
 |                                | MongoDB | | | | MongoDB doesn't support XML, it supports BSON. Not handy. it's possible, but demands extra work. |
 |                                | InfluxDB | | | | Database build for time series such as operations monitoring, application metrics, Internet of Things sensor data, and real-time analytics.  |
