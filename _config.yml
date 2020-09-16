@@ -13,3 +13,5 @@ github:
 github_username:  Flurb
 git_repo:         compas-architecture
 git_branch:       PAGES
+
+baseurl:          /{{ git_repo }}/
