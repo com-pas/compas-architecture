@@ -2,16 +2,16 @@
 title:            CoMPAS Architecture
 tagline:          'Architecture of the CoMPAS project'
 
-paginate:       5
+paginate:         5
 
 # Custom vars
-version:          0.0.1
+version:          0.0.2
 
 github:
   repo:           https://github.com/com-pas/compas-architecture
 
-github_username:  Flurb
+github_username:  com-pas
 git_repo:         compas-architecture
-git_branch:       PAGES
+git_branch:       master
 
 baseurl:          /compas-architecture/
