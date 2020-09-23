@@ -42,4 +42,5 @@
  - Access permissions for certain application parts
  - Scalability of the application
  - How to handle log files (rotating?)
+ - Release management
  - ...
