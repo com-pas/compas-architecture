@@ -12,6 +12,9 @@ github:
 
 github_username:  com-pas
 git_repo:         compas-architecture
-git_branch:       master
+git_branch:       Issue_18
 
-baseurl:          /compas-architecture/
+baseurl:          /compas-architecture
+
+plugins:
+  - jekyll-readme-index
