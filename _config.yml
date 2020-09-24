@@ -16,5 +16,9 @@ git_branch:       Issue_18
 
 baseurl:          /compas-architecture
 
-plugins:
-  - jekyll-readme-index
+defaults:
+  - 
+    scope:
+      path: "README.md"
+    values:
+      permalink: "home.html"
