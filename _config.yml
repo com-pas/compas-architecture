@@ -12,7 +12,7 @@ github:
 
 github_username:  com-pas
 git_repo:         compas-architecture
-git_branch:       Issue_18
+git_branch:       master
 
 baseurl:          /compas-architecture
 
@@ -21,4 +21,4 @@ defaults:
     scope:
       path: "README.md"
     values:
-      permalink: "home.html"
+      permalink: "index.html"
