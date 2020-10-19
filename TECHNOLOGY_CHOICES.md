@@ -49,6 +49,14 @@ Homepage: http://exist-db.org/exist/apps/homepage/index.html
 
 # XML Processing
 ## RiseClipse
+### Pros
+- Main use is validating IEC 81850/IEC CIM configuration files, exactly what we need.
+- Usage experience within Alliander
+- [Docker image](https://hub.docker.com/r/riseclipse/riseclipse-validator-scl) available
+- Add own validation rules (in Object Constraint Language)
+
+### Cons
+- Development doesn't seem very active
 
 ## Schematron
 ### Pros
