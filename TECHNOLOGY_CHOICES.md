@@ -48,12 +48,19 @@ Homepage: http://exist-db.org/exist/apps/homepage/index.html
 - eXist needs JRE (Java Runtime Environment) to run
 
 # XML Processing
-
 ## RiseClipse
 
 ## Schematron
+### Pros
+- There is a XQuery library module for eXist-db (https://github.com/Schematron/schematron-exist)
+- Rule-based approach. If assertion fails, a message is being supplied
+- Based on XSLT and xPath, so very flexible in manipulating/processing XML
+- Suggesting XML fixes
+- Referencing other XML documents as constraint validation
+- XSL Processor like [Saxon-HE](http://saxon.sourceforge.net/) is easy to use
 
-## xerces
+### Cons
+- Not an application itself, needs a XSL processor like [Saxon-HE](http://saxon.sourceforge.net/) which is also open-source
 
 ## BaseX
 ### Pros
