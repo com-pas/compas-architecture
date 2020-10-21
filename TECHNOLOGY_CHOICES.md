@@ -18,11 +18,6 @@ Homepage: https://www.postgresql.org/
 ### Cons
 - Not a native XML database
 
-## Neo4J
-Homepage: https://neo4j.com/
-### Pros
-### Cons
-
 ## CouchDB
 Homepage: https://couchdb.apache.org/
 ### Pros
