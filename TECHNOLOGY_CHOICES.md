@@ -48,6 +48,11 @@ Homepage: http://exist-db.org/exist/apps/homepage/index.html
 - eXist needs JRE (Java Runtime Environment) to run
 
 # XML Processing
+## Checks for determining XML processing
+- Can manipulate/check XML configuration files by using rules
+- Can be embedded in our solution
+- Tool must be open source
+
 ## RiseClipse
 ### Pros
 - Main use is validating IEC 81850/IEC CIM configuration files, exactly what we need.
@@ -68,7 +73,7 @@ Homepage: http://exist-db.org/exist/apps/homepage/index.html
 - XSL Processor like [Saxon-HE](http://saxon.sourceforge.net/) is easy to use
 
 ### Cons
-- Not an application itself, needs a XSL processor like [Saxon-HE](http://saxon.sourceforge.net/) which is also open-source
+- Not an application itself, needs a XSLT processor like [Saxon-HE](http://saxon.sourceforge.net/) which is also open-source
 
 ## BaseX
 ### Pros
@@ -85,3 +90,15 @@ Homepage: http://exist-db.org/exist/apps/homepage/index.html
 - Seems a bit heavy with underlying XML database
 - Needs Java Runtime
 - All found use cases are pretty old
+
+## Advice Rob
+My advice would be to use Schematron (in combination with an XSLT processor) as the XML processing tool. It can do what RiseClipse can do, and more (like suggesting XML fixes and it's more flexible because it works with native XML technologies). Plus, it works in combination with eXist-db. 
+
+Examples:
+https://en.wikibooks.org/wiki/XQuery/Validation_with_Schematron#Setup_in_eXist-db
+
+https://exist-db.org/exist/apps/doc/validation
+
+https://github.com/Schematron/schematron-exist
+
+RiseClipse is also a good candidate, because it's dedicated on IEC 61850/CIM validation. Only thing is, it's not as flexible as using Schematron. But I really do like the combination Schematron and eXist-db.
