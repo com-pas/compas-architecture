@@ -1,6 +1,8 @@
 # Technology Choices
+The right technology choices are key to a good project.
 
 # Databases
+These databases have been evaluated:
 - PostgreSQL
 - Neo4J
 - CouchDB
@@ -62,6 +64,7 @@ Homepage: http://exist-db.org/exist/apps/homepage/index.html
 
 ### Cons
 - Development doesn't seem very active
+- Community is limited / not very active ( See [GitLab](https://gitlab-research.centralesupelec.fr/groups/RiseClipseGroup/-/activity) and [GitHub](https://github.com/riseclipse) )
 
 ## Schematron
 ### Pros
