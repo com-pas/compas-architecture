@@ -78,22 +78,6 @@ Homepage: http://exist-db.org/exist/apps/homepage/index.html
 ### Cons
 - Not an application itself, needs a XSLT processor like [Saxon-HE](http://saxon.sourceforge.net/) which is also open-source
 
-## BaseX
-### Pros
-- Fully Open Source
-- Active development
-- Docker image available at https://hub.docker.com/r/basex/basexhttp/. When running the docker image, REST, RESTXQ and WebDAV services can be used
-- BSD-3 Clause License, so no limitations
-- [Command line](https://docs.basex.org/wiki/Command-Line_Options) available
-
-### Cons
-- No out-of-the-box IEC 61850 support, so we need to implement some stuff ourselves
-- Command Line / Services doesn't seem as powerful as their editor, and I don't think we want to use an editor like BaseX Editor or Eclipse
-- If we don't use the Docker container, it seems that we need to use Eclipse to run it
-- Seems a bit heavy with underlying XML database
-- Needs Java Runtime
-- All found use cases are pretty old
-
 ## Advice Rob
 My advice would be to use Schematron (in combination with an XSLT processor) as the XML processing tool. It can do what RiseClipse can do, and more (like suggesting XML fixes and it's more flexible because it works with native XML technologies). Plus, it works in combination with eXist-db. 
 
