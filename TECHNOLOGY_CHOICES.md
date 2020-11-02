@@ -2,10 +2,17 @@
 # Database
 ## Checks for determining database
 - Database should be able to store XML data
-- Database should be relational, because we need relations between files/pieces of files/models
+- Database should be relational, because we need relations between files/pieces of files/models (not sure about this one)
 - Database must be provided with the solutions, for example part of a Docker image
 - Support must be available, in case of trouble.
 - Database must be open-source, because the whole solution must be open-source
+- Operations needs to have the ACID guarantees, because the data needs to be reliable and consistent
+- Performance isn't a big thing, but it's handy to have a database that performes quick!
+- We don't need complex queries, data retrieval is pretty flat
+
+## Document vs Relational Database
+There are basically two types of databases: Relational and No-SQL databases.
+When to choose one or another can be found on [Microsoft.com](https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/relational-vs-nosql-data).
 
 ## PostgreSQL
 Homepage: https://www.postgresql.org/
@@ -39,6 +46,7 @@ Homepage: https://basex.org/
 - Cross-platform
 - Active community
 - Multiple API's, like REST(ful) and HTTP
+- [ACID guarantees](https://docs.basex.org/wiki/Transaction_Management)
 
 ### Cons
 - No clear use cases using BaseX
