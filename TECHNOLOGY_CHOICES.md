@@ -23,6 +23,7 @@ Homepage: https://www.postgresql.org/
 ## CouchDB
 Homepage: https://couchdb.apache.org/
 ### Pros
+- The one con we have is decisive.
 
 ### Cons
 - Cannot store XML as key/property, but as blob. This makes querying a bit challanging.
