@@ -50,8 +50,36 @@ Together with the Technical Architecture, it should be possible to make the corr
  - How to handle log files (rotating?)
  - Deployment models
  - Cross platform compatibility
+ 
+ ## 61850 Requirements
+Requirements based on IEC 61850-6 10.2 System configurator
+
+The SSD describes the one-line diagram and the automation functions
+  -	Essential - make corrections = CRUD operations on any item, or sets of items, preserving referential integrity
+  -	Nice to have :  visualize this on a diagram  = requires extensions for graphics plus pan/zoom/layering features
+
+
+The SSD will describe the communications devices
+  -	 Essential – import ICD, CID, IID files of various versions and compile composite DataTypeTemplates for the client(s)
+  -	 Delete devices and all associated relationships
+  -	 Edit IP addresses
+  -	 Nice to have :  visualize this on a diagram  = requires pan/zoom/layering features
+
+
+The SCD describes the binding (mapping) between the required LNs per equipment/function
+  -	Assign / unassign / reassign LNs from IEDs to equipment
+  -	Per IED, show/ edit data set definitions
+  -	Per IED, show / edit report control block definitions
+
+
+Export functions
+  -	Export SCD in appropriate version for clients
+  -	Nice-to-have: export subset per IED in appropriate version (i.e. ICD + goose subscription information)/(IEC 61850-6 says this is an IED configurator function)
+
+IEC 61850-6 Table G.2 – System configurator conformance statement  has three pages of function headings some of which are complex
+
 
 #### Sources for non-function requirements:
-https://iso25000.com/
-https://dalbanger.wordpress.com/2014/01/08/a-basic-non-functional-requirements-checklist/
-http://www.it-checklists.com/Examples_nonfunctional_Requirements.html
+- https://iso25000.com/
+- https://dalbanger.wordpress.com/2014/01/08/a-basic-non-functional-requirements-checklist/
+- http://www.it-checklists.com/Examples_nonfunctional_Requirements.html
