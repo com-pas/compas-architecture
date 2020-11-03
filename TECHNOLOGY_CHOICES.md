@@ -1,37 +1,65 @@
 # Technology Choices
 The right technology choices are key to a good project.
-
-# Databases
-These databases have been evaluated:
+# Database
+These Databases are evaluated:
 - PostgreSQL
-- Neo4J
 - CouchDB
+- BaseX
 - eXist-db
 
 ## Checks for determining database
 - Database should be able to store XML data
-- Database should be relational, because we need relations between files/pieces of files/models
+- Database should be relational, because we need relations between files/pieces of files/models (not sure about this one)
 - Database must be provided with the solutions, for example part of a Docker image
 - Support must be available, in case of trouble.
 - Database must be open-source, because the whole solution must be open-source
+- Operations needs to have the ACID guarantees, because the data needs to be reliable and consistent
+- Performance isn't a big thing, but it's handy to have a database that performes quick!
+- We don't need complex queries, data retrieval is pretty flat
+
+## Document vs Relational Database
+There are basically two types of databases: Relational and No-SQL databases.
+When to choose one or another can be found on [Microsoft.com](https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/relational-vs-nosql-data).
 
 ## PostgreSQL
 Homepage: https://www.postgresql.org/
-
 ### Pros
-- Open Source (not entirely, working with patches)
-- Fully supports ACID
+- Open Source, relational database
+- PostgreSQL does have XML functions for handling XML files (XMLTABLE)
+- XMLTABLE turns XML into a relational table format
+- Good support available
+- [Docker image](https://hub.docker.com/_/postgres) available
+- Does have XML validation when using the XML type field.
 
 ### Cons
-- Does not support XML out-of-the-box
-
-## Neo4J
+- Not a native XML database
 
 ## CouchDB
+Homepage: https://couchdb.apache.org/
+### Pros
+- The one con we have is decisive.
+
+### Cons
+- Cannot store XML as key/property, but as blob. This makes querying a bit challanging.
+
+## BaseX
+Homepage: https://basex.org/
+
+### Pros
+- Native XML database
+- Fully Open Source
+- Good license! (BSD)
+- Easy to setup using available Docker image
+- Cross-platform
+- Active community
+- Multiple API's, like REST(ful) and HTTP
+- [ACID guarantees](https://docs.basex.org/wiki/Transaction_Management)
+
+### Cons
+- No clear use cases using BaseX
 
 ## eXist-db
 Homepage: http://exist-db.org/exist/apps/homepage/index.html
-
 ### Pros
 - Native XML database
 - Fully Open Source
@@ -48,6 +76,16 @@ Homepage: http://exist-db.org/exist/apps/homepage/index.html
 - Doesn't have all the ACID properties according to [vschart](http://vschart.com/compare/exist-db/vs/postgresql). Isolation is unknown, can't find other sources which confirm this.
 - Not well known, no clear use cases in production. There are some [here](http://showcases.exist-db.org/exist/apps/Showcases/index.html)
 - eXist needs JRE (Java Runtime Environment) to run
+
+## Advice Rob
+I prefer eXist-db as the database/register for our XML data (based on what we need). It's an open source, cross-platform native XML database with an active community and all the functionality we are looking for.
+
+A second option is using PostgreSQL. A stable, open source RDBMS which can also handle XML using the XMLTABLE functionality. But because it's not the native functionality of PostgreSQL (handling XML), I prefer a native XML database like eXist-db.
+
+My only concern is the maturity of eXist-db. I can't find good use cases of eXist-db, and I'm not sure of the stability in production for example. Let me know if someone knows some use cases, or maybe someone has experience with eXist-db.
+
+__Edit 2__: After discussing database choices within Alliander, eXist is indeed an option, but the license could be a problem. BaseX can do the same as eXist-db (as it seems) and has a better license for our situation (BSD).
+Also, because the idea is to have an abstract interface layer between CoMPAS and the database, people can also choose to use a different database in the future.
 
 # XML Processing
 ## Checks for determining XML processing
@@ -79,7 +117,8 @@ Homepage: http://exist-db.org/exist/apps/homepage/index.html
 - Not an application itself, needs a XSLT processor like [Saxon-HE](http://saxon.sourceforge.net/) which is also open-source
 
 ## Advice Rob
-My advice would be to use Schematron (in combination with an XSLT processor) as the XML processing tool. It can do what RiseClipse can do, and more (like suggesting XML fixes and it's more flexible because it works with native XML technologies). Plus, it works in combination with eXist-db. 
+My advice would be to use Schematron (in combination with an XSLT processor) as the XML processing tool.
+It can do what RiseClipse can do, and more (like suggesting XML fixes and it's more flexible because it works with native XML technologies). Plus, it works in combination with eXist-db. 
 
 Examples:
 https://en.wikibooks.org/wiki/XQuery/Validation_with_Schematron#Setup_in_eXist-db
@@ -88,4 +127,6 @@ https://exist-db.org/exist/apps/doc/validation
 
 https://github.com/Schematron/schematron-exist
 
-RiseClipse is also a good candidate, because it's dedicated on IEC 61850/CIM validation. Only thing is, it's not as flexible as using Schematron. But I really do like the combination Schematron and eXist-db.
+RiseClipse is also a good candidate, because it's dedicated on IEC 61850/CIM validation.
+Only thing is, it's not as flexible as using Schematron. But I really do like the combination Schematron and eXist-db/BaseX.
+
