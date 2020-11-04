@@ -8,7 +8,7 @@ General information can be found [here](https://wiki.lfenergy.org/display/HOME/C
 ## Open Community Calls
 We hold an open community call on Monday every two weeks. The start time right now is:
 
-14:30-15:00 UTC
+14:30-15:30 UTC
 
 If you wish to participate, please join the #community-calls channel of our LF Energy Slack (link above) shortly before each call to receive an invitation link.
 
