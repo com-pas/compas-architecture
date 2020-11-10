@@ -54,9 +54,11 @@ Homepage: https://basex.org/
 - Active community
 - Multiple API's, like REST(ful) and HTTP
 - [ACID guarantees](https://docs.basex.org/wiki/Transaction_Management)
+- Many [usage examples](https://docs.basex.org/wiki/Clients) available in different programming languages
 
 ### Cons
 - No clear use cases using BaseX
+- Versioning is not out-of-the-box available. Need to use a second database to create 'versioning', which creates an archive database and a current database. And by using RESTXQ is relatively easy to create a versioning mechanism. BaseX gave [SirixDB](https://sirix.io/) as a good alternative in case we want a NoSQL database with versioning mechanism.
 
 ## eXist-db
 Homepage: http://exist-db.org/exist/apps/homepage/index.html
