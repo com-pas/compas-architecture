@@ -89,6 +89,12 @@ My only concern is the maturity of eXist-db. I can't find good use cases of eXis
 __Edit 2__: After discussing database choices within Alliander, eXist is indeed an option, but the license could be a problem. BaseX can do the same as eXist-db (as it seems) and has a better license for our situation (BSD).
 Also, because the idea is to have an abstract interface layer between CoMPAS and the database, people can also choose to use a different database in the future.
 
+__Edit 3__: Because BaseX doesn't have versioning out of the box, I mailed the BaseX community about this issue. The quoted response:
+
+>The existing modules of BaseX don’t provide a ready solution for versioning features, but it’s perfectly feasible to build a versioning solution with XQuery. If you use RESTXQ for storing and retrieving data, you could e.g. move the current version of documents to an archive database and replace it with the incoming new document.
+
+Which is fine, a second running database isn't a problem because it's a pretty light-weight database.
+
 # XML Processing
 ## Checks for determining XML processing
 - Can manipulate/check XML configuration files by using rules
