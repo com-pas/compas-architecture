@@ -138,3 +138,27 @@ https://github.com/Schematron/schematron-exist
 RiseClipse is also a good candidate, because it's dedicated on IEC 61850/CIM validation.
 Only thing is, it's not as flexible as using Schematron. But I really do like the combination Schematron and eXist-db/BaseX.
 
+# Microservice technology
+## Checks for determining microservice technology
+- Technology should be accepted by Alliander
+
+## Java (Spring)
+### Pros
+- 
+
+### Cons
+
+## Go Micro
+### Pros
+
+### Cons
+
+## Python Flask
+### Pros
+
+### Cons
+
+## NestJS w/ NodeJS
+### Pros
+
+### Cons
