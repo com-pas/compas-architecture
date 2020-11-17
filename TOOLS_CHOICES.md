@@ -13,30 +13,30 @@ These build tools are evaluated:
 
 ## Github Actions
 ### Pros
-* Upcoming tool, really active in developing
-* Free tool for public Github repositories (which CoMPAS is)
-* Integrates perfectly with Github repositories
+- Upcoming tool, really active in developing
+- Free tool for public Github repositories (which CoMPAS is)
+- Integrates perfectly with Github repositories
 
 ### Cons
-* Software is proprietary
-* Not much experience within Alliander
+- Software is proprietary
+- Not much experience within Alliander
 
 ## Travis CI
 ### Pros
-* Very much used CI/CD tool for Open Source projects
+- Very much used CI/CD tool for Open Source projects
 
 ### Cons
-* Not used within Alliander, so no experience or know-how
-* No advantages compared to the other evaluated tools
+- Not used within Alliander, so no experience or know-how
+- No advantages compared to the other evaluated tools
 
 ## Jenkins
 ### Pros
-* Lots of experience within Alliander
+- Lots of experience within Alliander
 
 ### Cons
-* Not easy to make public (which is what we want)
-* Security of Jenkins often has security leaks
-* Jenkins is being replaced within Alliander
+- Not easy to make public (which is what we want)
+- Security of Jenkins often has security leaks
+- Jenkins is being replaced within Alliander
 
 ## Advice
 Github Actions is the way to go for us.
