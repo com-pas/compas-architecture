@@ -135,24 +135,33 @@ Only thing is, it's not as flexible as using Schematron. But I really do like th
 # Microservice technology
 ## Checks for determining microservice technology
 - Technology should be accepted by Alliander
+- 
 
 ## Java (Spring)
 ### Pros
-- 
+- Preferred language for Alliander
+- Lots of experience within CoMPAS community
+- Using Spring (Boot), it's very easy to quickly setup a microservice
+- Massive community
 
 ### Cons
+- Pretty complex if you never worked with Java Spring
 
 ## Go Micro
 ### Pros
 
 ### Cons
+- Not default accepted language for Alliander (decisive)
 
 ## Python Flask
 ### Pros
+- Preferred language for Alliander
 
 ### Cons
+- If you never used Flask before, it needs some work to get into it
 
 ## NestJS w/ NodeJS
 ### Pros
 
 ### Cons
+- Not default accepted language for Alliander (decisive)
