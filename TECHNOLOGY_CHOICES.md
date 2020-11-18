@@ -137,7 +137,7 @@ Only thing is, it's not as flexible as using Schematron. But I really do like th
 - Technology should be accepted by Alliander
 - 
 
-## Java (Spring)
+## Java Spring
 ### Pros
 - Preferred language for Alliander
 - Lots of experience within CoMPAS community
@@ -165,3 +165,9 @@ Only thing is, it's not as flexible as using Schematron. But I really do like th
 
 ### Cons
 - Not default accepted language for Alliander (decisive)
+
+## Advice
+Python Flask en Java Spring are very close and can both be used for our purposes.
+
+It's an advantage that there is more Java Spring experience compared to Python Flask, so the suggestion is to use Java Spring.
+Alliander also made a Minimal Viable Product of a microservice using Java Spring and BaseX, which was very quick to setup and works very well.
