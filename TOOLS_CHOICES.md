@@ -19,7 +19,7 @@ These build tools are evaluated:
 
 ### Cons
 - Software is proprietary
-- Not much experience within Alliander
+- Adoption is growing within Alliander
 
 ## Travis CI
 ### Pros
@@ -32,6 +32,7 @@ These build tools are evaluated:
 ## Jenkins
 ### Pros
 - Lots of experience within Alliander
+- Well known in the industry of Software automation
 
 ### Cons
 - Not easy to make public (which is what we want)
