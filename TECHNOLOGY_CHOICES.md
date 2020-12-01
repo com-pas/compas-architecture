@@ -156,6 +156,7 @@ https://quarkus.io/
 - Java stack, and working experience is avaiable in the community
 - Open Source
 - Hot reload for quick development
+- Less verbose code when developing REST API's, compared to for example Java Spring
 - Tailored for GraalVM (universal VM), which is also very interesting for us (usage of resources)
 - Huge decrease of memory huge compared to traditional cloud-native stacks like Java Spring.
 - Huge decrease in response times compared to traditional cloud-native stacks like Java Spring.
@@ -163,7 +164,8 @@ https://quarkus.io/
 - Quickly settings up microservices with REST APIs
 
 ### Cons
-- -
+- Doesn't support full set of some EE standards, like Enterprise JavaBeans. Expected is that it's not a game breaker for us.
+- Relatively new technology, framework could contain some "rookie mistakes". On the other hand, multiple researches are stating the maturity of the framework it achieved in this short time.
 
 ## Java Spring
 https://github.com/spring-projects/spring-framework
@@ -225,4 +227,6 @@ Rob also made a Minimal Viable Product of a microservice using Java Spring and B
 
 NestJS also looks very promising, but the lack of documentation is a game changer for me. Go Micro is also a good candidate, but the lack a maturity made me decide not to choose for Go Micro.
 
-Edit: When looking at the memory usage (and response times) of Quarkus, it's definitely interesting for us. Because CoMPAS is an application which also should run locally, memory usage is an important aspect. Together with being a modern microservice framework, backed by RedHat and being a Java framework (which we are having experience with) it's the best choice for now!
+Edit: When looking at the memory usage (and response times) of Quarkus, it's definitely interesting for us. Also take a look at this [comparison with Java Spring](https://simply-how.com/quarkus-vs-spring-boot-production-performance)
+
+Because CoMPAS is an application which also should run locally, memory usage is an important aspect. Together with being a modern microservice framework, backed by RedHat and being a Java framework (which we are having experience with) it's the best choice for now!
