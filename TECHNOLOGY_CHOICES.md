@@ -1,5 +1,9 @@
 # Technology Choices
 The right technology choices are key to a good project.
+
+# Current Technology Choices
+![Current technology choices](./technical-overview/Current_Technology_Choices_Overview.svg)
+
 # Database
 These Databases are evaluated:
 - PostgreSQL
