@@ -8,7 +8,7 @@ General information can be found [here](https://wiki.lfenergy.org/display/HOME/C
 ## Open Community Calls
 We hold an open community call on Monday every two weeks. The start time right now is:
 
-14:30-15:00 UTC
+14:30-15:30 UTC
 
 If you wish to participate, please join the #community-calls channel of our LF Energy Slack (link above) shortly before each call to receive an invitation link.
 
@@ -18,10 +18,10 @@ The schedule for the next calls are:
 
 | |
 |-|
-|23 November 2020|
-|7 December 2020|
 |21 December 2020|
 |4 January 2021|
+|18 January 2021|
+|1 February 2021|
 
 ## Contributing
 Interested in contributing? Please read carefully the [CONTRIBUTING guidelines](https://github.com/com-pas/contributing/blob/master/CONTRIBUTING.md).
