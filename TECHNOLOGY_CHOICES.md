@@ -107,7 +107,7 @@ Which is fine, a second running database isn't a problem because it's a pretty l
 
 ## RiseClipse
 ### Pros
-- Main use is validating IEC 81850/IEC CIM configuration files, exactly what we need.
+- Main use is validating IEC 61850/IEC CIM configuration files, exactly what we need.
 - Usage experience within Alliander
 - [Docker image](https://hub.docker.com/r/riseclipse/riseclipse-validator-scl) available
 - Add own validation rules (in Object Constraint Language)
