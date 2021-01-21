@@ -18,10 +18,11 @@ The schedule for the next calls are:
 
 | |
 |-|
-|21 December 2020|
-|4 January 2021|
-|18 January 2021|
-|1 February 2021|
+|February 1 2021|
+|February 15 2021|
+|March 1 2021|
+|March 15 2021|
+
 
 ## Contributing
 Interested in contributing? Please read carefully the [CONTRIBUTING guidelines](https://github.com/com-pas/contributing/blob/master/CONTRIBUTING.md).
