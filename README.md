@@ -23,6 +23,7 @@ The schedule for the next calls are:
 |March 1 2021|
 |March 15 2021|
 
+
 ## Contributing
 Interested in contributing? Please read carefully the [CONTRIBUTING guidelines](https://github.com/com-pas/contributing/blob/master/CONTRIBUTING.md).
 
