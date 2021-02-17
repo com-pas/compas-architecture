@@ -23,6 +23,7 @@ VoltageLevel
 
 - Substation seems to be okay, there might be some tricky situations I'm not aware of.
 - PowerTransformer* looks not complete. According to the IEC 62361-102 standard, the SCL equivalent is 'TransformerWinding', this is done differently.
+- Components like Terminal and Bay are looking fine!
 
 #### Missing some SCL elements
 - whole 'Process' SCL element mapping
