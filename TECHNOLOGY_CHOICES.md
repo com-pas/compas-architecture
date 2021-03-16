@@ -128,7 +128,7 @@ Which is fine, a second running database isn't a problem because it's a pretty l
 ### Cons
 - Not an application itself, needs a XSLT processor like [Saxon-HE](http://saxon.sourceforge.net/) which is also open-source
 
-## Advice Rob
+## Final decision
 My advice would be to use Schematron (in combination with an XSLT processor) as the XML processing tool.
 It can do what RiseClipse can do, and more (like suggesting XML fixes and it's more flexible because it works with native XML technologies). Plus, it works in combination with eXist-db. 
 
