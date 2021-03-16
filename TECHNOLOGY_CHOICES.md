@@ -83,17 +83,19 @@ Homepage: http://exist-db.org/exist/apps/homepage/index.html
 - Not well known, no clear use cases in production. There are some [here](http://showcases.exist-db.org/exist/apps/Showcases/index.html)
 - eXist needs JRE (Java Runtime Environment) to run
 
-## Advice Rob
+## Final decision
 I prefer eXist-db as the database/register for our XML data (based on what we need). It's an open source, cross-platform native XML database with an active community and all the functionality we are looking for.
 
 A second option is using PostgreSQL. A stable, open source RDBMS which can also handle XML using the XMLTABLE functionality. But because it's not the native functionality of PostgreSQL (handling XML), I prefer a native XML database like eXist-db.
 
 My only concern is the maturity of eXist-db. I can't find good use cases of eXist-db, and I'm not sure of the stability in production for example. Let me know if someone knows some use cases, or maybe someone has experience with eXist-db.
 
-__Edit 2__: After discussing database choices within Alliander, eXist is indeed an option, but the license could be a problem. BaseX can do the same as eXist-db (as it seems) and has a better license for our situation (BSD).
+### Licensing problems
+After discussing database choices within Alliander, eXist is indeed an option, but the license could be a problem. BaseX can do the same as eXist-db (as it seems) and has a better license for our situation (BSD).
 Also, because the idea is to have an abstract interface layer between CoMPAS and the database, people can also choose to use a different database in the future.
 
-__Edit 3__: Because BaseX doesn't have versioning out of the box, I mailed the BaseX community about this issue. The quoted response:
+### Is it bad BaseX doesn't have versioning out of the box?
+Because BaseX doesn't have versioning out of the box, I mailed the BaseX community about this issue. The quoted response:
 
 >The existing modules of BaseX don’t provide a ready solution for versioning features, but it’s perfectly feasible to build a versioning solution with XQuery. If you use RESTXQ for storing and retrieving data, you could e.g. move the current version of documents to an archive database and replace it with the incoming new document.
 
