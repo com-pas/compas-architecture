@@ -2,8 +2,8 @@
 
 [![Slack](public/LFEnergy-slack.svg)](http://lfenergy.slack.com/)
 
-Providing architecture documentation around the CoMPAS project.\
-General information can be found [here](https://wiki.lfenergy.org/display/HOME/CoMPAS).
+This site provides the architectural description of CoMPAS. It describes the [Functional Architecture](FUNCTIONAL_ARCHITECTURE.md), presenting the logical view and design decisions, as well as the [Technical Architecture](TECHNICAL_ARCHITECTURE.md), presenting the deployment view. It describes the [Technology Choices](TECHNOLOGY.md) made for the project together with the motivation.
+General information about CoMPAS can be found [on the wiki at the LFE site](https://wiki.lfenergy.org/display/HOME/CoMPAS).
 
 ## Open Community Calls
 We hold an open community call on Monday every two weeks. The start time right now is:
@@ -27,4 +27,4 @@ The schedule for the next calls are:
 Interested in contributing? Please read carefully the [CONTRIBUTING guidelines](https://github.com/com-pas/contributing/blob/master/CONTRIBUTING.md).
 
 ## Github Pages
-For all relevant project information, please visit our [Github Pages website](https://com-pas.github.io/compas-architecture/).
+This site is provided as a [gitbook site](https://com-pas.github.io/compas-architecture/). The content however is maintained and edited on [Github](https://github.com/com-pas/compas-architecture). Contributers are only alowed to contribute by editing the content on Github and must do so by presenting their modifications as pull-request to the community. 
