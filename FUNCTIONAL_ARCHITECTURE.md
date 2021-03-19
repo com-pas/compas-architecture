@@ -21,13 +21,30 @@ Refer to the [Glossary](GLOSSARY.md) for the abbreviations and various 61850 fil
 
 The green indicated process are in scope for CoMPASS.
 
+### CoMPAS architecture
+#### Context
+![CoMPAS context diagram](./functional-diagrams/context.png)
+
+The diagram shows the context of CoMPAS. CoMPAS offers a set of IEC61850 services disclosed by a REST API that can be used to create tooling for specification, configuration, deployment and testing of substations.
+
+#### First level of decomposition
+![CoMPAS context diagram](./functional-diagrams/1stLevelDecomposition.png)
+
+This diagram shows the services within CoMPAS. Currently following (micro)services are provisioned:
+
+| Service | Description |
+| --- | --- |
+| [**CIM to SSD Mapper**](CIM_61850_MAPPING.md) |  A service that maps a CIM representation of a substation to an IEC61850 System Specification Description (SSD) file |
+
+
+
 ### Microservice architecture
 CoMPAS will consist of a number of microservices that can be used to build substation configuration tools according to IEC61850. In this situation a microservice architecture is chosen because of
 * CoMPAS will provide reusable components
 * The development will be open source, therefore by multiple development teams. Since microservices are loosly coupled and independent this will fit.
 * Microservices are independently deployable and testable
 
-![CoMPAS functional block diagram](./functional-diagrams/microservice.png)
+![Microservice architecture](./functional-diagrams/microservice.png)
 
 The diagram shows the generic structure of a microservice. It consists of following layers:
 
