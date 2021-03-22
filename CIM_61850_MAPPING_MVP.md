@@ -49,3 +49,8 @@ Mapping is done between a RDF4J model (statement) and a SCL class.
 
 ### Architecture overview
 ![mapping architecture overview](./images/CIM_61850_mapping_architecture_overview.svg)
+
+### References
+IEC 61970-301: Common Information Model
+
+IEC 61970-552: Specification of CIMXML
