@@ -37,10 +37,15 @@ There are some other libraries to handle these kinds of RDF files.
 [RDF4J](https://rdf4j.org/) and [Apache Jena](https://jena.apache.org/) are mostly used for this.
 They don't differ that much in their qualities, so it's actually a matter of taste which one to use. Both are also open source, so they fit perfectly in the CoMPAS architecture.
 
-We decided to use RDF4J, because it has plenty of examples in [PowSyBl](https://github.com/powsybl/powsybl-core) and it has a great and active [community](https://github.com/eclipse/rdf4j). 
+We decided to use RDF4J, because it has plenty of examples in [PowSyBl](https://github.com/powsybl/powsybl-core) and it has a great and active [community](https://github.com/eclipse/rdf4j).
+
+### Outgoing SCL files
+For the outgoing SCL file, we already have the Java models to fill in. We generate these Java models based on the IEC-61859-6 XSD schemas by using the JAXB XJC tool. This way, the only thing we have to do is adding the data from the RDF4J model to the IEC 61850-6 SCL model. And the final step is to 'marshal' this Java model to a XML file.
+
+### Mapping of RDF4J data to SCL Java classes
+The mapping itself is being done with [Orika](https://orika-mapper.github.io/orika-docs/). Orika is a Java bean for mapping data between two classes and makes it more simple.
+
+Mapping is done between a RDF4J model (statement) and a SCL class.
 
 ### Architecture overview
 ![mapping architecture overview](./images/CIM_61850_mapping_architecture_overview.svg)
-The plan is to convert incoming CIM files to a RDF4J model. Because the assumption can be made that all incoming CIM files are using the RDF framework, RDF4J can be used to create a model of this file so you can easily query it.
-
-Based on this model, a mapping can be made to a SCL file which is based on the IEC 62361-102 standard. A SCL (XML) file can be created with JAXB.
