@@ -13,7 +13,7 @@
 * [Glossary](GLOSSARY.md)
 * [Project Github repo](https://github.com/com-pas/)
 
-## Appendix
+## Appendices
 
 * [Tech survey](TECHNOLOGY_SURVEY.md)
 * [Tech Choices](TECHNOLOGY_CHOICES.md)
