@@ -89,3 +89,4 @@ IEC 61850-6 Table G.2 – System configurator conformance statement  has three p
 - [A basic non functional requirements checklist](https://dalbanger.wordpress.com/2014/01/08/a-basic-non-functional-requirements-checklist/)
 - [10 Examples for Non-Functional Requirements](http://www.it-checklists.com/Examples_nonfunctional_Requirements.html)
 - [Security requirement workshop](https://com-pas.github.io/compas-architecture/blob-files/security_requirements_workshop.pdf)
+- [IEC 61850-6](https://webstore.iec.ch/publication/63319)
