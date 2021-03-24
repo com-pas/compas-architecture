@@ -36,6 +36,7 @@ This diagram shows the services within CoMPAS. Currently following (micro)servic
 | --- | --- |
 | [**CIM to SSD Mapper**](CIM_61850_MAPPING.md) |  A service that maps a CIM representation of a substation to an IEC61850 System Specification Description (SSD) file |
 
+_**More services to be added**_
 
 
 ### Microservice architecture
