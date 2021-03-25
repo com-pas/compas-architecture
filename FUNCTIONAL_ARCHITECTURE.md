@@ -15,7 +15,7 @@ The IEC61850 standard describes the process and tooling for substation automatio
 | **Configuration Substation System** | With this process the Utility configures the substation. This results in the SCD file. Aditional inputs for this process are the IID file (IED configuration) and SED file (interfacing with other projects) |
 | **Configure IED** | The process of configuring the IED. This results in an instantiated IED IID file. The process is manufacturer specific. It results in either an ICD file or IID file. It is used to convert the SCD to a manufacturer specfic CID file to be sent to the IED |
 | **Test** | The fully configured IED can be tested against the SCD and SSD files |
-| **Convert to CIM/GIS** | The 61850 configuration files can be used to feed CIM or GIS systems within the Utility |
+| **Convert CIM/GIS to IEC61850 SLD** | CIM or GIS can te used to convert to 61850 configuration files |
 
 Refer to the [Glossary](GLOSSARY.md) for the abbreviations and various 61850 file types.
 
