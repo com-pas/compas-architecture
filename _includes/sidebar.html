@@ -1,28 +1,33 @@
 <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <h1>
+      <h2>
         <a href="{{ site.baseurl }}">
           {{ site.title }}
         </a>
-      </h1>
+      </h2>
       <p class="lead">{{ site.description }}</p>
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
+      <a class="sidebar-nav-item{% if page.url == "/" %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
+      <a class="sidebar-nav-item{% if page.url == "FUNCTIONAL_ARCHITECTURE.html" %} active{% endif %}" href="{{ site.baseurl }}/FUNCTIONAL_ARCHITECTURE.html">Functional Architecture</a>
+      <ul class="nav-list ">
+        <li class="nav-list-item ">
+          <a href="{{ site.baseurl }}/CIM_61850_MAPPING.html" class="sidebar-nav-item">SSD Import from CIM</a>
+        </li>
+        <li class="nav-list-item ">
+            <a href="{{ site.baseurl }}/CIM_61850_MAPPING_MVP.html" class="sidebar-nav-item">SSD Import from CIM MVP</a>
+        </li>
+      </ul>
+      <a class="sidebar-nav-item{% if page.url == "TECHNICAL_ARCHITECTURE.html" %} active{% endif %}" href="{{ site.baseurl }}/TECHNICAL_ARCHITECTURE.html">Technical Architecture</a>
+      <a class="sidebar-nav-item{% if page.url == "TECHNOLOGY.html" %} active{% endif %}" href="{{ site.baseurl }}/TECHNOLOGY.html">Technology</a>
+      <a class="sidebar-nav-item{% if page.url == "GLOSSARY.html" %} active{% endif %}" href="{{ site.baseurl }}/GLOSSARY.html">Glossary</a>
+      <H3>Appendices</H3>
+      <a class="sidebar-nav-item{% if page.url == "TECHNOLOGY_CHOICES.html" %} active{% endif %}" href="{{ site.baseurl }}/TECHNOLOGY_CHOICES.html">Technology Choices</a>
+      <a class="sidebar-nav-item{% if page.url == "TECHNOLOGY_SURVEY.html" %} active{% endif %}" href="{{ site.baseurl }}/TECHNOLOGY_SURVEY.html">Technology Survey</a>
+      <a class="sidebar-nav-item{% if page.url == "TOOL_CHOICES.html" %} active{% endif %}" href="{{ site.baseurl }}/TOOL_CHOICES.html">Tool Choices</a>
 
-      {% assign pages_list = site.pages %}
-      {% for node in pages_list %}
-        {% if node.title != null %}
-          {% if node.layout == "page" %}
-            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-
-      <a class="sidebar-nav-item" href="{{ site.baseurl }}/blob-files/security_requirements_workshop.pdf" target="_blank">Security Requirements</a>
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}" target="_blank">GitHub project</a>
       <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
     </nav>
 

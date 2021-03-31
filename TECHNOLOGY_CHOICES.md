@@ -83,17 +83,19 @@ Homepage: http://exist-db.org/exist/apps/homepage/index.html
 - Not well known, no clear use cases in production. There are some [here](http://showcases.exist-db.org/exist/apps/Showcases/index.html)
 - eXist needs JRE (Java Runtime Environment) to run
 
-## Advice Rob
+## Final decision
 I prefer eXist-db as the database/register for our XML data (based on what we need). It's an open source, cross-platform native XML database with an active community and all the functionality we are looking for.
 
 A second option is using PostgreSQL. A stable, open source RDBMS which can also handle XML using the XMLTABLE functionality. But because it's not the native functionality of PostgreSQL (handling XML), I prefer a native XML database like eXist-db.
 
 My only concern is the maturity of eXist-db. I can't find good use cases of eXist-db, and I'm not sure of the stability in production for example. Let me know if someone knows some use cases, or maybe someone has experience with eXist-db.
 
-__Edit 2__: After discussing database choices within Alliander, eXist is indeed an option, but the license could be a problem. BaseX can do the same as eXist-db (as it seems) and has a better license for our situation (BSD).
+### Licensing problems
+After discussing database choices within Alliander, eXist is indeed an option, but the license could be a problem. BaseX can do the same as eXist-db (as it seems) and has a better license for our situation (BSD).
 Also, because the idea is to have an abstract interface layer between CoMPAS and the database, people can also choose to use a different database in the future.
 
-__Edit 3__: Because BaseX doesn't have versioning out of the box, I mailed the BaseX community about this issue. The quoted response:
+### Is it bad BaseX doesn't have versioning out of the box?
+Because BaseX doesn't have versioning out of the box, I mailed the BaseX community about this issue. The quoted response:
 
 >The existing modules of BaseX don’t provide a ready solution for versioning features, but it’s perfectly feasible to build a versioning solution with XQuery. If you use RESTXQ for storing and retrieving data, you could e.g. move the current version of documents to an archive database and replace it with the incoming new document.
 
@@ -128,7 +130,7 @@ Which is fine, a second running database isn't a problem because it's a pretty l
 ### Cons
 - Not an application itself, needs a XSLT processor like [Saxon-HE](http://saxon.sourceforge.net/) which is also open-source
 
-## Advice Rob
+## Final decision
 My advice would be to use Schematron (in combination with an XSLT processor) as the XML processing tool.
 It can do what RiseClipse can do, and more (like suggesting XML fixes and it's more flexible because it works with native XML technologies). Plus, it works in combination with eXist-db. 
 
@@ -223,7 +225,7 @@ https://github.com/nestjs/nest
 - Lack of documentation
 - Not a lot of backing power, compared to for example Go Micro (Google). So the question is how long it can live, living to huge competitors like Go Micro and Java Spring.
 
-## Advice Rob
+## Final decision
 Python Flask en Java Spring are very close and can both be used for our purposes.
 
 It's an advantage that there is more Java Spring experience compared to Python Flask, so the suggestion is to use Java Spring. Also based on the checks I made.
@@ -231,6 +233,6 @@ Rob also made a Minimal Viable Product of a microservice using Java Spring and B
 
 NestJS also looks very promising, but the lack of documentation is a game changer for me. Go Micro is also a good candidate, but the lack a maturity made me decide not to choose for Go Micro.
 
-Edit: When looking at the memory usage (and response times) of Quarkus, it's definitely interesting for us. Also take a look at this [comparison with Java Spring](https://simply-how.com/quarkus-vs-spring-boot-production-performance)
+When looking at the memory usage (and response times) of Quarkus, it's definitely interesting for us. Also take a look at this [comparison with Java Spring](https://simply-how.com/quarkus-vs-spring-boot-production-performance)
 
 Because CoMPAS is an application which also should run locally, memory usage is an important aspect. Together with being a modern microservice framework, backed by RedHat and being a Java framework (which we are having experience with) it's the best choice for now!
