@@ -72,7 +72,7 @@ The microservice offers a REST API that presents the service. The IEC61850 servi
 **REST Security**:
 Https will be used for the REST calls. Data transferred by the calls must be regarded as confidential and therefore must be protected against data disclosure. Microservices must therefore be provided with a certificate. When all microservices and the Configuration Tool are deployed within the same namespace, it is allowed to use http.
 
-For the moment no authentication and authorization is used for the REST APIs. If authenitation/authorization is required in a later stage (for example, if substation configuration is stored by the microservices), it shall be OAuth 2.0 Code grant flow. 
+_OAuth 2.0 Code grant flow_ will be used for authentication and authorization. 
 The user logs in on the Configuration Tool and obtains a code and token (preferably a Java Web Token (JWT)). The token is used to access the microservices as a resource.
 This requires an OAuth server.
 
