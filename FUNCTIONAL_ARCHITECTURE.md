@@ -19,7 +19,7 @@ The IEC61850 standard describes the process and tooling for substation automatio
 
 Refer to the [Glossary](GLOSSARY.md) for the abbreviations and various 61850 file types.
 
-The green indicated process are in scope for CoMPASS.
+The green indicated process are in scope for CoMPAS.
 
 ### CoMPAS architecture
 #### Context
@@ -35,6 +35,7 @@ This diagram shows the services within CoMPAS. Currently following (micro)servic
 | Service | Description |
 | --- | --- |
 | [**CIM to SSD Mapper**](CIM_61850_MAPPING.md) |  A service that maps a CIM representation of a substation to an IEC61850 System Specification Description (SSD) file |
+| **CoMPAS Configuration Manager** | Example configuration tool, as web page, based on [OpenSCD](https://github.com/openscd/open-scd). CoMPAS microservices can be used to create own configuration tooling. CoMPASS Configuration Manager serves as an example of such a tool. |
 
 _**More services to be added**_
 
