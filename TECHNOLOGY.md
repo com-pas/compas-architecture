@@ -43,19 +43,23 @@ For the database BaseX](https://basex.org/) is chosen on following arguments:
 - No clear use cases using BaseX
 - Versioning is not out-of-the-box available. Need to use a second database to create 'versioning', which creates an archive database and a current database. And by using RESTXQ is relatively easy to create a versioning mechanism. BaseX gave [SirixDB](https://sirix.io/) as a good alternative in case we want a NoSQL database with versioning mechanism.
 
-## XML Processing - Schematron
+## XML Processing - Mainly JAXB for processing XML, RDF4J for IEC CIM configuration files
 
-**Pros**
-- There is an [XQuery module for integration in BaseX](https://github.com/Schematron/schematron-basex)
-- Rule-based approach. If assertion fails, a message is being supplied
-- Based on XSLT and xPath, so very flexible in manipulating/processing XML
-- Suggesting XML fixes
-- Referencing other XML documents as constraint validation
-- XSL Processor like [Saxon-HE](http://saxon.sourceforge.net/) is easy to use
+**Pros JAXB**
+- Java library for processing XML
+- Memory efficient (for more information, take a look at the comparison in [CIM - 61850 Mapping technologies](./CIM_61850_MAPPING_MVP.md))
+- JAXB has the XJC tool for creating Java classes from XSD schemas (validation). This way, a XML file can be easily build by inserting data into the models.
 
-**Cons**
-- Not an application itself, needs a XSLT processor like [Saxon-HE](http://saxon.sourceforge.net/) which is also open-source
+**Cons JAXB**
+- JAXB was part of the Java language, but has been removed from the language since Java version 11. To use it, you have to add an extra dependency.
 
+**Pros RDF4J**
+- Java library for querying RDF(XML) files
+- Well known in the Java community
+- Not having to re invent the wheel of processing incoming IEC CIM configuration files
+
+**Cons RDF4J**
+- If you don't have experience with triples, it might take a while before understanding it all.
 
 ## Java framework - Quarkus
 For the framework to be used with Java we choose [Quarkus](https://quarkus.io/).
