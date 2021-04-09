@@ -43,15 +43,49 @@ For the database BaseX](https://basex.org/) is chosen on following arguments:
 - No clear use cases using BaseX
 - Versioning is not out-of-the-box available. Need to use a second database to create 'versioning', which creates an archive database and a current database. And by using RESTXQ is relatively easy to create a versioning mechanism. BaseX gave [SirixDB](https://sirix.io/) as a good alternative in case we want a NoSQL database with versioning mechanism.
 
-## XML Processing - Mainly JAXB for processing XML, RDF4J for IEC CIM configuration files
+## XML Processing 
+### XML Validation
 
+**Schematron**
+
+SCL XSD is the base schema for the SCL file validation. Even though, with XSD 1.1, it's somehow possible to define co-occurrence constraints with tags "key", "keyref" (combined with xpath selector) and restriction rules with "assert" (within a type definition), that is not enough to expressed complex and custom business logics. 
+
+Schematron is a rule-based validation language for making assertions about the presence or absence of patterns in XML trees. One doesn't need heavy environment to use Schematron. 
+Schematron is XML, uses xml technologies (XPATH) and is very straightforward (less than seven basic elements)
+It has features for XML processing that other schema validators don't have:
+- inter-document constraints validation, 
+- hint to fix file under validation.
+- Phase/Profile validation
+- Abstract rules definition that can be extended (inheritance)
+- Embeddable in XSD and Relax NG schema
+- etc.
+
+It's optimally used in combination with XML schema (XSD, RELAX NG). 
+
+### Java frameworks for XML processing
 **Pros JAXB**
-- Java library for processing XML
+- JAXB (Java Architecture for XML Binding) is a framework that allow mapping Java classes to XML representations
 - Memory efficient (for more information, take a look at the comparison in [CIM - 61850 Mapping technologies](./CIM_61850_MAPPING_MVP.md))
-- JAXB has the XJC tool for creating Java classes from XSD schemas (validation). This way, a XML file can be easily build by inserting data into the models.
+- Uses the XJC tool available in the JDK, that compiles an XML schema file into Java classes annotated with JAXB annotations suitable for (un)marshalling. This way, a XML file can be easily build by inserting data into the models.
 
 **Cons JAXB**
 - JAXB was part of the Java language, but has been removed from the language since Java version 11. To use it, you have to add an extra dependency.
+- Dealing with large documents is not straightforward (cf. [JAXB user guide](https://javaee.github.io/jaxb-v2/doc/user-guide/ch03.html#unmarshalling-dealing-with-large-documents).) 
+
+### Java libraries for schematron
+
+- [schematron-ant](https://github.com/Schematron/ant-schematron)
+- [schematron-basex](https://github.com/Schematron/schematron-basex)
+- [schematron-exist](https://github.com/Schematron/schematron-exist)
+- [ph-schematron](https://github.com/phax/ph-schematron/wiki)
+- [apache camel](https://camel.apache.org/components/3.7.x/schematron-component.html) for enterprise integration pattern environment
+
+**Other supports for Schematron specification**
+
+- [lxml](https://lxml.de/) (Python library)
+- libxml2 (C XML library)
+
+### RDF4J for IEC CIM configuration files 
 
 **Pros RDF4J**
 - Java library for querying RDF(XML) files
@@ -61,11 +95,13 @@ For the database BaseX](https://basex.org/) is chosen on following arguments:
 **Cons RDF4J**
 - If you don't have experience with triples, it might take a while before understanding it all.
 
+
+
 ## Java framework - Quarkus
 For the framework to be used with Java we choose [Quarkus](https://quarkus.io/).
 
 **Pros**
-- Java stack, and working experience is avaiable in the community
+- Java stack, and working experience is available in the community
 - Open Source
 - Hot reload for quick development
 - Less verbose code when developing REST API's, compared to for example Java Spring
@@ -82,7 +118,7 @@ Because CoMPAS is an application which also should run locally, memory usage is 
 **Cons**
 - Doesn't support full set of some EE standards, like Enterprise JavaBeans. Expected is that it's not a game breaker for us.
 - Relatively new technology, framework could contain some "rookie mistakes". On the other hand, multiple researches are stating the maturity of the framework it achieved in this short time.
-- Not much developers are acquainted with Quarkus compared to e.g. the [Spring framework](https://spring.io/).
+- Not many developers are acquainted with Quarkus compared to e.g. the [Spring framework](https://spring.io/).
 
 ## Source control - Github
 We choose github for source control. This is good practice for open source development. 
