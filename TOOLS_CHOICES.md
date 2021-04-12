@@ -1,4 +1,4 @@
-# Tool Choices
+# Tools Choices
 The right tool choices are key to a good project.
 # CI/CD tool
 These build tools are evaluated:

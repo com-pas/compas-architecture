@@ -15,7 +15,7 @@
 
 ## Appendices
 
-* [Tech survey](TECHNOLOGY_SURVEY.md)
-* [Tech Choices](TECHNOLOGY_CHOICES.md)
-* [Tool Choices](TOOLS_CHOICES.md)
+* [Technology survey](TECHNOLOGY_SURVEY.md)
+* [Technology Choices](TECHNOLOGY_CHOICES.md)
+* [Tools Choices](TOOLS_CHOICES.md)
 
