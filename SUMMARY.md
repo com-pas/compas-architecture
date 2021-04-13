@@ -9,6 +9,7 @@
     * [SSD import from CIM](CIM_61850_MAPPING.md)
     * [SSD import from CIM - MVP](CIM_61850_MAPPING_MVP.md)
 * [Technical Architecture](TECHNICAL_ARCHITECTURE.md)
+* [Database Management](DATABASE_MANAGEMENT.md)
 * [Technology](TECHNOLOGY.md)
 * [Glossary](GLOSSARY.md)
 * [Project Github repo](https://github.com/com-pas/)
