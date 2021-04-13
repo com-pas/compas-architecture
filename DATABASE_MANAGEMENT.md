@@ -22,15 +22,13 @@ function page:search($term as xs:string) {
 };
 ```
 
-By using RESTXQ, a versioning mechanism can be created. So for example, in a edit (PUT) function we can do something like: When editing a already stored configuration, save it by incrementing the version and store as a separate configuration.
+By using RESTXQ, a versioning mechanism can be created. So for example, in a edit (PUT) function we can do something like: When editing a already stored configuration, save it by incrementing the version and store as a separate configuration. The old configuration is stored in the archive database, the current version is replaced in the current database.
 
-In a get (GET) function, we can make distinction between newer and older versions using RESTXQ.
+In a get (GET) function, we can make distinction between newer and older versions using RESTXQ. By using xQuery syntax (scl[@version="1"] for example), we can get specific versions of a configuration.
 
 ### Points to remember
 - home of BaseX = /srv/basex
 - RESTXQ file extension = .xqm
-
-
 - RESTXQPATH variable (in {home}/webapp/WEB-INF/web.xml) points to directory containing the RESTXQ modules (.xqm files)
   - Default is '.', which is relative to the WEBPATH variable (which is {home}/webapp)
 
