@@ -26,6 +26,15 @@ By using RESTXQ, a versioning mechanism can be created. So for example, in a edi
 
 In a get (GET) function, we can make distinction between newer and older versions using RESTXQ. By using xQuery syntax (scl[@version="1"] for example), we can get specific versions of a configuration.
 
+### Versioning type
+For type of versioning, we prefer [Semantic Versioning](https://semver.org/). This to keep versioning simple. For every changeset CoMPAS is going to ask if it's a major, minor or a patch. This way the version will be adjusted according to the user's needs. An example of distinction can be:
+- A changeset is Major in case a full XML section is being added.
+- A changeset is Minor is a piece of data is adjusted.
+- A changeset is a Patch if a typo is fixed.
+But this is up to the user.
+
+## Tech Talk
+
 ### Points to remember
 - home of BaseX = /srv/basex
 - RESTXQ file extension = .xqm
@@ -55,6 +64,7 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 
 ### Restrictions
 A single database is restricted to 2 billion nodes (also, see [BaseX Statistics](https://docs.basex.org/wiki/Statistics))
+A node in this case is an XML node like an element, attribute, text, etc.
 
 ### Sources
 http://www.adamretter.org.uk/presentations/restxq_mugl_20120308.pdf
