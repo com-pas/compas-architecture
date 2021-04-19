@@ -102,5 +102,23 @@ An activity has a start- and endtime. In our case, that can be the period from o
 
 And a set of extra attributes can be added. In the added example, an hostname is added. In our case that's not very handy, because if CoMPAS is runned locally, the hostname doesn't say that much. What makes the most sense at this point is adding a User attribute which is linked to the future oAuth 2.0 authorisation/authentication module.
 
+Example of added PROV section. The UserID attribute is a simplified attribute for identifying the entity doing the activity:
+```xml
+<prov:document
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:ex="http://example.com/ns/ex#">
+
+  <prov:activity prov:id="ex:a1">
+    <prov:startTime>2021-03-16T16:05:00</prov:startTime>
+    <prov:endTime>2021-03-16T16:08:00</prov:endTime>
+    <prov:type xsi:type="xsd:QName">ex:edit</prov:type>
+    <ex:userId>123456</ex:userId>
+  </prov:activity>
+
+</prov:document>
+```
+
 ### Sources
 https://www.w3.org/TR/prov-xml
