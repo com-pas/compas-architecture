@@ -2,7 +2,7 @@
 The right technology choices are key to a good project.
 
 # Current Technology Choices
-![Current technology choices](./images/Current_Technology_Choices_Overview.svg)
+![Current technology choices](./images/current_technology_overview/Current_Technology_Choices_Overview.png)
 
 # Database
 These Databases are evaluated:

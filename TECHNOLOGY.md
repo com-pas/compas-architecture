@@ -2,7 +2,7 @@
 
 This page lists the technologies and tools chosen for the project
 
-![Current technology choices](./images/Current_Technology_Choices_Overview.svg)
+![Current technology choices](./images/current_technology_overview/Current_Technology_Choices_Overview.png)
 
 # Technology Choices
 ## Programming language - Java
