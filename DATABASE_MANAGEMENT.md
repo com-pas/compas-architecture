@@ -1,6 +1,6 @@
 ## Database Management
 
-### Versioning Overview
+## Versioning Overview
 ![Versioning overview](./images/database/BaseX_Versioning.png)
 
 To achieve versioning (which is not available out-of-the-box), we need to add something smart to BaseX. This smart thing is [RESTXQ](http://exquery.github.io/exquery/exquery-restxq-specification/restxq-1.0-specification.html) in our case.
@@ -71,3 +71,36 @@ A node in this case is an XML node like an element, attribute, text, etc.
 
 ### Sources
 http://www.adamretter.org.uk/presentations/restxq_mugl_20120308.pdf
+
+## Provenance Overview
+If the generation of a substation fails for example, we would like to know the provenance of the file.
+This way it's easier to get the cause.
+
+### W3 PROV
+Provenance is information about entities, activities, and people involved in producing a piece of data or thing, which can be used to form assessments about its quality, reliability or trustworthiness. The PROV Family of Documents defines a model, corresponding serializations and other supporting definitions to enable the inter-operable interchange of provenance information in heterogeneous environments such as the Web. This document provides an overview of this family of documents. (https://www.w3.org/TR/prov-overview/#Abstract)
+
+W3C does have a full standard for extending files with provenance information, in such a way that it's standardized and it enables the interchangable of provenance information in environments such as, in our case, XML environments. The design of PROV is based on the recommendations of the [Provenance Incubator Group](https://www.w3.org/2005/Incubator/prov/charter).
+
+### W3 PROV-XML
+One of the documents of W3 PROV is PROV-XML. This document converts the PROV standard to XML definitions, and is what we want.
+PROV-XML has 6 components to use:
+- component 1: entities and activities, and the time at which they were created, used, or ended;
+- component 2: derivations of entities from others;
+- component 3: agents bearing responsibility for entities that were generated and activities that happened;
+- component 4: bundles, a mechanism to support provenance of provenance;
+- component 5: properties to link entities that refer to a same thing;
+- component 6: collections forming a logical structure for its members.
+
+The component we're most interested in, is component 1. And especially the activities.
+There is a [Activity complexType](https://www.w3.org/TR/2013/NOTE-prov-xml-20130430/#term-Activity) defined. An Activity in PROV-XML is defined as:
+
+> something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
+> 
+This is how we can interpret a edit on a XML file: as an activity.
+
+An activity has a start- and endtime. In our case, that can be the period from opening the file to saving the file. It has a type or activity, which will most of the time be an Edit.
+
+And a set of extra attributes can be added. In the added example, an hostname is added. In our case that's not very handy, because if CoMPAS is runned locally, the hostname doesn't say that much. What makes the most sense at this point is adding a User attribute which is linked to the future oAuth 2.0 authorisation/authentication module.
+
+### Sources
+https://www.w3.org/TR/prov-xml
