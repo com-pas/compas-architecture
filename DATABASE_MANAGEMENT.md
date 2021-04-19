@@ -33,6 +33,9 @@ For type of versioning, we prefer [Semantic Versioning](https://semver.org/). Th
 - A changeset is a Patch if a typo is fixed.
 But this is up to the user.
 
+Another solution could be [Branch Based Versioning](https://simon-maxen.medium.com/branch-based-versioning-5ebf6ca2bccb). This way, a configuration file can be 'branched', and can be 'merged' when the user think it's fine. When merging, a newer version number can be added (can be done in combination with semantic versioning).
+This in indeed a fancy way of versioning, but it's too complex for our use cases. We don't see users branching a configuration file and saving it for a couple of days, before merging it. Besides, this kind of versioning isn't supported in BaseX out of the box so we have to create it ourselves. When comparing added value to effort, this isn't what we want.
+
 ## Tech Talk
 
 ### Points to remember
