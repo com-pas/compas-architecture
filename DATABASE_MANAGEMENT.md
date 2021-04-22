@@ -33,7 +33,7 @@ For type of versioning, we prefer [Semantic Versioning](https://semver.org/). Th
 - A changeset is a Patch if a typo is fixed.
 But this is up to the user.
 
-Saving the version will be done in combination with the History section (tHitem) of the SCL structure. This history section contains multiple history items, so you can create a provenance section. Please checkout the [Provenance](##Provenance) section for more information. Key point is: a tHitem contains the following attributes:
+Saving the version will be done in combination with the History section (tHitem) of the SCL structure. This history section contains multiple history items, so you can create a provenance section. Please checkout the [Provenance](#provenance-overview) section for more information. Key point is: a tHitem contains the following attributes:
 - Version
 - Revision
 - When
