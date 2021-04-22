@@ -1,6 +1,6 @@
 ## Database Management
 
-### Versioning Overview
+## Versioning Overview
 ![Versioning overview](./images/database/BaseX_Versioning.png)
 
 To achieve versioning (which is not available out-of-the-box), we need to add something smart to BaseX. This smart thing is [RESTXQ](http://exquery.github.io/exquery/exquery-restxq-specification/restxq-1.0-specification.html) in our case.
@@ -71,3 +71,5 @@ A node in this case is an XML node like an element, attribute, text, etc.
 
 ### Sources
 http://www.adamretter.org.uk/presentations/restxq_mugl_20120308.pdf
+
+## Database Rights
