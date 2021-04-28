@@ -120,5 +120,27 @@ Example of added PROV section. The UserID attribute is a simplified attribute fo
 </prov:document>
 ```
 
+### IEC-61850-6 hItem (History)
+A second option is the History section of a SCL file.
+This section is a standard section of a SCL and contains the following fields:
+- version
+- revision
+- when
+- who
+- what
+- why
+
+As you can see, this can be done in combination with [versioning](#versioning-overview).
+This is enough for the basic usage that we need. For every version (every edit for example), a new hItem will be added to the SCL.
+This way, we don't need to extend the SCL by default. We can just use the standard.
+
+### Final Thoughts
+The best way is to use the History section of a SCL file.
+It's flexible enough for our basic needs, so we got the version, the when, the who, etc.
+
+In the future it's possible that we need to need something extra, for example an origin CIM file from conversion.
+For this we can use the W3C PROV-XML section.
+In this case, we can extend the History item with so-called 'private' data, which will be the W3C PROV-XML data.
+
 ### Sources
 https://www.w3.org/TR/prov-xml
