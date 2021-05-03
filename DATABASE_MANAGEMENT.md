@@ -1,6 +1,6 @@
 ## Database Management
 
-## Versioning Overview
+### Versioning Overview
 ![Versioning overview](./images/database/BaseX_Versioning.png)
 
 To achieve versioning (which is not available out-of-the-box), we need to add something smart to BaseX. This smart thing is [RESTXQ](http://exquery.github.io/exquery/exquery-restxq-specification/restxq-1.0-specification.html) in our case.
@@ -32,6 +32,16 @@ For type of versioning, we prefer [Semantic Versioning](https://semver.org/). Th
 - A changeset is Minor is a piece of data is adjusted.
 - A changeset is a Patch if a typo is fixed.
 But this is up to the user.
+
+Saving the version will be done in combination with the History section (tHitem) of the SCL structure. This history section contains multiple history items, so you can create a provenance section. Please checkout the [Provenance](#provenance-overview) section for more information. Key point is: a tHitem contains the following attributes:
+- Version
+- Revision
+- When
+- Who
+- What
+- Why
+
+This creates provenance, and version is one of them. The version attribute will be used for the latest version.
 
 Another solution could be [Branch Based Versioning](https://simon-maxen.medium.com/branch-based-versioning-5ebf6ca2bccb). This way, a configuration file can be 'branched', and can be 'merged' when the user think it's fine. When merging, a newer version number can be added (can be done in combination with semantic versioning).
 This in indeed a fancy way of versioning, but it's too complex for our use cases. We don't see users branching a configuration file and saving it for a couple of days, before merging it. Besides, this kind of versioning isn't supported in BaseX out of the box so we have to create it ourselves. When comparing added value to effort, this isn't what we want.
