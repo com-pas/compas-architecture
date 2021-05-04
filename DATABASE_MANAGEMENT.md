@@ -111,6 +111,7 @@ BaseX doesn't have compatibility with a central identity repository (like Keyclo
 [Example with xQuery](https://code-repo.d4science.org/gCubeSystem/d4science-keycloak-themes/src/branch/master/src/utils/xquery)
 
 [Example with RESTXQ](./blob-files/code_examples/auth_sk.xqm)
+Author: Marco Lettere. Origin: [BaseX Mailing List](https://mailman.uni-konstanz.de/pipermail/basex-talk/2021-May/016157.html)
 
 Full attached description about this example:
 
