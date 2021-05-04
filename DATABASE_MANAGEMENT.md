@@ -151,6 +151,7 @@ It's flexible enough for our basic needs, so we got the version, the when, the w
 In the future it's possible that we need to need something extra, for example an origin CIM file from conversion.
 For this we can use the W3C PROV-XML section.
 In this case, we can extend the History item with so-called 'private' data, which will be the W3C PROV-XML data.
+For more information about the private elements in the SCL structure, take a look at chapter 8.3.6 of the IEC-61850-6 standard.
 
 ### Sources
 https://www.w3.org/TR/prov-xml
