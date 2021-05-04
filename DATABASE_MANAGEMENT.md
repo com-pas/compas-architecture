@@ -109,7 +109,15 @@ All permissions are stored in a file called users.xml (which can be editted manu
 BaseX doesn't have compatibility with a central identity repository (like Keycloak) out of the box available, but after discussing it with the BaseX community it's pretty comfortable to achieve this with RESTXQ or xQuery. There are examples available for making use of Keycloak:
 
 [Example with xQuery](https://code-repo.d4science.org/gCubeSystem/d4science-keycloak-themes/src/branch/master/src/utils/xquery)
-Example with RESTXQ is not available yet. The RESTXQ module, in combination with the basex:perm annotation, protects the access to a GUI implementing the OAuth2 Code-grant flow. This is definitely something we can use.
+
+[Example with RESTXQ](./blob-files/code_examples/auth_sk.xqm)
+
+Full attached description about this example:
+
+>I attach here an example of an OIDC code grant flow implemented with RestXQ, BaseX permission and error handler.
+The file includes a sort of library for performing the steps of the OIDC flow plus a minimal application that is registered as public client inside keycloak and which is what you should access from your browser by calling http://localhost:8984/authtest or http://localhost:8984/authtest/internal.
+I've put into it also the logout procedure for performing the back-channel logout which closes the SSO session.
+This is only a resume of a more generic and complex module but it should be useful as a howto and it should be as simple to install as copying the file to your BaseX' webapp folder. Use it as you like.
 
 ### Is direct database access allowed within the microservices architecture?
 For maintenance for example, it's of course allowed to have direct database access. There is no best practice available for this. For some things, you just need direct database access.
