@@ -95,8 +95,11 @@ In both permission groups, a higher permission includes all lower permissions. S
 
 All permissions are stored in a file called users.xml (which can be editted manually) inside the database directory, and is being parsed once BaseX is started.
 
-### How do we connect it with a central user rights repository?
-Under Investigation.
+### How do we connect BaseX with a central identity repository/application?
+BaseX doesn't have compatibility with a central identity repository (like Keycloak) out of the box available, but after discussing it with the BaseX community it's pretty comfortable to achieve this with RESTXQ or xQuery. There are examples available for making use of Keycloak:
+
+[Example with xQuery](https://code-repo.d4science.org/gCubeSystem/d4science-keycloak-themes/src/branch/master/src/utils/xquery)
+Example with RESTXQ is not available yet. The RESTXQ module, in combination with the basex:perm annotation, protects the access to a GUI implementing the OAuth2 Code-grant flow. This is definitely something we can use.
 
 ### Is direct database access allowed within the microservices architecture?
 For maintenance for example, it's of course allowed to have direct database access. There is no best practice available for this. For some things, you just need direct database access.
