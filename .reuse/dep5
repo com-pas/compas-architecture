@@ -5,12 +5,12 @@ Source: https://github.com/com-pas/compas-architecture
 
 Files: blob-files/*
 Copyright: 2021 Alliander N.V.
-License: Apache-2.0
+License: CC-BY-4.0
 
 Files: functional-diagrams/*
 Copyright: 2021 Alliander N.V.
-License: Apache-2.0
+License: CC-BY-4.0
 
 Files: images/*
 Copyright: 2021 Alliander N.V.
-License: Apache-2.0
+License: CC-BY-4.0
