@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Alliander N.V.
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 ## Technnology Survey
 An initial survey was taken to determine some technologies we could use:
 

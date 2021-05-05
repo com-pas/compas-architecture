@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Alliander N.V.
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 ## Mapping CIM - IEC 61850
 
 We got a mapping example from RTE, they already created a mapping between CIM files and IEC 61850 files.
