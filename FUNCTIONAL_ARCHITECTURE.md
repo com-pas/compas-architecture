@@ -42,6 +42,7 @@ This diagram shows the services within CoMPAS. Currently following (micro)servic
 | --- | --- |
 | [**CIM to SSD Mapper**](CIM_61850_MAPPING.md) |  A service that maps a CIM representation of a substation to an IEC61850 System Specification Description (SSD) file |
 | **CoMPAS Configuration Manager** | Example configuration tool, as web page, based on [OpenSCD](https://github.com/openscd/open-scd). CoMPAS microservices can be used to create own configuration tooling. CoMPASS Configuration Manager serves as an example of such a tool. |
+| **CoMPAS SCL Data Service** | A service handling the storage of SCL files, hosted on [Github](https://github.com/com-pas/compas-scl-data-service). Besides hosting SCL files, it also offers APIs for storing and retrieving these SCL files. |
 
 _**More services to be added**_
 
