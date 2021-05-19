@@ -7,18 +7,18 @@ SPDX-License-Identifier: CC-BY-4.0
 ## CoMPAS SCL Data Service
 
 ### Introduction
-The CoMPAS SCL Data Service is a rest interface that can be used to retrieve, store, update and delete 
+The CoMPAS SCL Data Service is a REST interface that can be used to retrieve, store, update and delete 
 SCL Configuration to different kind of database. 
 
 ### Components
-The Service consists of a generic service layer with a rest interface on top. And a repository layer 
+The Service consists of a generic service layer with a REST interface on top. And a repository layer 
 will be used to communicate with the storage. There will be different implementations available of
 this repository layer.
 
 ![Component Diagram](images/CoMPAS-SclDataService-ComponentDiagram.png)
 
-### Rest interface
-The request and response bodies of the rest calls use the format XML as content (not JSON), because the SCL is also written in XML. 
+### REST interface
+The request and response bodies of the REST calls use the format XML as content (not JSON), because the SCL is also written in XML. 
 
 Depending on the environment where the component is running there is an OpenAPI UI available on "/openapi-ui/index.html" (for example "http://localhost:8080/openapi-ui/index.html").
 The OpenAPI JSON can be retrieved on "/openapi" (for example "http://localhost:8080/openapi").
@@ -51,3 +51,4 @@ There a some Basex specific choices made in storing the SCL.
   Version part may be optional if no history will be saved.
   
 ### PostgreSQL
+TODO
