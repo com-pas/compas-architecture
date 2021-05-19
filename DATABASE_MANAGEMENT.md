@@ -1,6 +1,12 @@
+<!--
+SPDX-FileCopyrightText: 2021 Alliander N.V.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 ## Database Management
 
-### Versioning Overview
+## Versioning Overview
 ![Versioning overview](./images/database/BaseX_Versioning.png)
 
 To achieve versioning (which is not available out-of-the-box), we need to add something smart to BaseX. This smart thing is [RESTXQ](http://exquery.github.io/exquery/exquery-restxq-specification/restxq-1.0-specification.html) in our case.
@@ -81,6 +87,52 @@ A node in this case is an XML node like an element, attribute, text, etc.
 
 ### Sources
 http://www.adamretter.org.uk/presentations/restxq_mugl_20120308.pdf
+
+## Database Rights
+In a microservice architecture, a microservice's database should be part of the implementation of that service and cannot be accessed directly by other services. This way, the service is loosely coupled and can be developed/scaled/deployed independently.
+
+There are some patterns to keep persistent data private:
+- private-tables-per-service
+- schema-per-service
+- database-server-per-service
+As seen, 2 options are not available for BaseX because it's not a relational database. It doesn't have tables or schemas.
+A Database-server-per-service pattern helps ensure that the services are lossely coupled.
+
+The CIM - IEC 61850 service for example get's their own database. If another service wants to get SCD files from this service, use the API of that particular service.
+
+### Where do we set the user privelages of Basex?
+Basex has it's own [User Management](https://docs.basex.org/wiki/User_Management).
+
+It's pretty straight forward: Basex has Users that can be created. These users can have so-called permissions that can be applied to the user:
+![BaseX permissions overview](./images/database/basex_permissions.png)
+
+In this overview, we see 'Global' permissions and 'Local' permissions.
+In both permission groups, a higher permission includes all lower permissions. So a user with the 'Create' permission also has the 'Read' permission.
+
+All permissions are stored in a file called users.xml (which can be editted manually) inside the database directory, and is being parsed once BaseX is started.
+
+### How do we connect BaseX with a central identity repository/application?
+BaseX doesn't have compatibility with a central identity repository (like Keycloak) out of the box available, but after discussing it with the BaseX community it's pretty comfortable to achieve this with RESTXQ or xQuery. There are examples available for making use of Keycloak:
+
+[Example with xQuery](https://code-repo.d4science.org/gCubeSystem/d4science-keycloak-themes/src/branch/master/src/utils/xquery)
+
+[Example with RESTXQ](./blob-files/code_examples/auth_sk.xqm)
+Author: Marco Lettere. Origin: [BaseX Mailing List](https://mailman.uni-konstanz.de/pipermail/basex-talk/2021-May/016157.html)
+
+Full attached description about this example:
+
+>I attach here an example of an OIDC code grant flow implemented with RestXQ, BaseX permission and error handler.
+The file includes a sort of library for performing the steps of the OIDC flow plus a minimal application that is registered as public client inside keycloak and which is what you should access from your browser by calling http://localhost:8984/authtest or http://localhost:8984/authtest/internal.
+I've put into it also the logout procedure for performing the back-channel logout which closes the SSO session.
+This is only a resume of a more generic and complex module but it should be useful as a howto and it should be as simple to install as copying the file to your BaseX' webapp folder. Use it as you like.
+
+### Is direct database access allowed within the microservices architecture?
+For maintenance for example, it's of course allowed to have direct database access. There is no best practice available for this. For some things, you just need direct database access.
+
+If other microservices need access to the data of an other microservice, the only way (best practice) to do this is by API calls.
+
+Source:
+https://microservices.io/patterns/data/database-per-service.html
 
 ## Provenance Overview
 If the generation of a substation fails for example, we would like to know the provenance of the file.

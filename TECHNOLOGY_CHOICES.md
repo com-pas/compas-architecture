@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Alliander N.V.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Technology Choices
 The right technology choices are key to a good project.
 

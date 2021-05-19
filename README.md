@@ -1,6 +1,13 @@
+<!--
+SPDX-FileCopyrightText: 2021 Alliander N.V.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # CoMPAS Architecture
 
 [![Slack](public/LFEnergy-slack.svg)](http://lfenergy.slack.com/)
+[![REUSE status](https://api.reuse.software/badge/github.com/com-pas/compas-architecture)](https://api.reuse.software/info/github.com/com-pas/compas-architecture)
 
 This site provides the architectural description of CoMPAS. It describes the [Functional Architecture](FUNCTIONAL_ARCHITECTURE.md), presenting the logical view and design decisions, as well as the [Technical Architecture](technical/TECHNICAL_ARCHITECTURE.md), presenting the deployment view. It describes the [Technology Choices](TECHNOLOGY.md) made for the project together with the motivation.
 General information about CoMPAS can be found [on the wiki at the LFE site](https://wiki.lfenergy.org/display/HOME/CoMPAS).

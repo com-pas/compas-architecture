@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Alliander N.V.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 ## Architecture for CIM - IEC 61850 mapping.
 
 To do the mapping, we need some kind of XML processing tool for processing incoming / outgoing XML files.
