@@ -10,7 +10,7 @@ SPDX-License-Identifier: CC-BY-4.0
 This section describes the deployment view of CoMPAS.
 
 ### Building and Deployment
-![](./functional-diagrams/deploy.png)
+![](../functional-diagrams/deploy.png)
 
 The diagram above shows the deployment view. Blue components are within scope of the CoMPAS project.
 
