@@ -46,7 +46,7 @@ The Service class contains some logic regarding versions and private elements.
 There a some Basex specific choices made in storing the SCL. 
 - For every type of SCL a separate database is created. This is quite easy done in BaseX.
   ![Databases](images/CoMPAS-SclDataService-Databases.png)
-- In these databases the SCL will be stored as "<uuid>/<major-version>/<minor-version>/<patch-version>". 
+- In these databases the SCL will be stored as "\<uuid\>/\<major-version\>/\<minor-version\>/\<patch-version\>". 
   This way it will be easy to store the different version and find the latest version.
   Version part may be optional if no history will be saved.
   
