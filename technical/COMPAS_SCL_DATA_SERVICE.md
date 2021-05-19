@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Alliander N.V.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 ## CoMPAS SCL Data Service
 
 ### Introduction
