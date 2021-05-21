@@ -24,10 +24,6 @@ By default, all source code repositories use Gradle as the build tool.
 This building step is pretty easy to configure. Just create a `gradle_build.yml` file in the `.github/workflows` directory containing the following source code:
 
 ```yaml
-# SPDX-FileCopyrightText: ...
-#
-# SPDX-License-Identifier: ...
-
 name: Gradle Build
 
 on: push #(1)
