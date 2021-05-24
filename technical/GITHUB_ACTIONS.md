@@ -59,7 +59,7 @@ For keeping our copyright and licensing information up to date and correct, we u
 ```yaml
 name: REUSE Compliance Check
 
-on: push
+on: push #(1)
 
 jobs:
   test:
@@ -69,6 +69,9 @@ jobs:
     - name: REUSE Compliance Check
       uses: fsfe/reuse-action@v1
 ```
+
+A few points to remember:
+- (1): By default, all actions are triggered on a push action.
 
 This is the only thing that has to be done. After this, it will be checked on every push.
 
@@ -89,3 +92,57 @@ There is one steps left: Replace `repoName` with the name of the specific reposi
 After doing all these steps, everything is set up for the REUSE check.
 
 ### SonarCloud
+For static code analysis, CoMPAS is using [SonarCloud](https://sonarcloud.io/). To configure this, there are several steps that needs to be done.
+
+1. Go to the [CoMPAS Github organization settings](https://github.com/organizations/com-pas/settings/profile), and click on "Installed Github Apps". SonarCloud is listed here already (because we are already using it). Click on the 'configure' button next to it.
+2. In the "Repository access" section, select the repository you want to add. By default, not every repository is added as an extra check.
+3. Create a new project in [SonarCloud](https://sonarcloud.io/projects/create).
+4. Select the repository to be analyzed, click Set Up.
+5. Choose the Analysis Method "With Github Actions".
+6. It first tells you to create a SONAR_TOKEN secret in your repo. Go to your repository -> Settings - Secrets -> New repository secret -> Name: SONAR_TOKEN. Value: Copy the value from the SonarCloud website into here. Then save the secret
+7. Select Gradle as the option that best describes our build and **remember the projectKey**. and create a `sonarcloud_analysis.yml` file in the `.github/workflows` directory containing the following source code running.
+
+```yaml
+name: SonarCloud Analysis
+
+on: push #(1)
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Cache Gradle packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle
+      - name: Build and analyze
+        env:
+          GITHUB_USERNAME: "OWNER" #(2)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #(3)
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew build jacocoTestReport sonarqube -Dsonar.projectKey=<insert project key> -Dsonar.organization=com-pas -Dsonar.host.url=https://sonarcloud.io --info #(4)
+```
+
+A few points to remember:
+- (1): By default, all actions are triggered on a push action.
+- (2): Only applicable if your repository is depending on our Github Packages. The GITHUB_TOKEN needs to be set with something (value doesn't matter) to give your access to the Github Packages during build.
+- (3): Again, only applicable if your repository is depending on our Github Packages. The GITHUB_TOKEN gives you access to the Github Packages during build.
+- (4): Replace the `<insert project key>` with the project key you copied.
+
+Once this is set, it's all done!
