@@ -54,5 +54,38 @@ A few points to remember:
 - (3): If the Gradle project is depending on a CoMPAS specific[Github Package](https://github.com/orgs/com-pas/packages), you have to add some environment variables. For more information, check the [Github Packages]() page (this is still a [TODO](https://github.com/com-pas/compas-architecture/issues/98)).
 
 ### REUSE check
+For keeping our copyright and licensing information up to date and correct, we use [REUSE](https://reuse.software/) to check this. This is also configured for every separate repository in an easy manner: just create a `reuse.yml` file in the `.github/workflows` directory containing the following source code:
+
+```yaml
+name: REUSE Compliance Check
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: REUSE Compliance Check
+      uses: fsfe/reuse-action@v1
+```
+
+This is the only thing that has to be done. After this, it will be checked on every push.
+
+#### REUSE badge
+For transparancy, CoMPAS repositories also include a REUSE badge in their README for fast checking the REUSE compliance.
+
+Two steps are needed to get a REUSE badge to work:
+
+1. Register the Repository at the [REUSE website](https://api.reuse.software/register). For name and email, check the [Slack channel](https://app.slack.com/client/TLU68MTML/C01926K9D39).
+2. Add the following code to the README:
+   
+```md
+[![REUSE status](https://api.reuse.software/badge/github.com/com-pas/repoName)](https://api.reuse.software/info/github.com/com-pas/repoName)
+```
+
+There is one steps left: Replace `repoName` with the name of the specific repository (as stated in the URL).
+
+After doing all these steps, everything is set up for the REUSE check.
 
 ### SonarCloud
