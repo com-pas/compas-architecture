@@ -104,10 +104,6 @@ a.sidebar-nav-item:focus {
   font-weight: bold;
 }
 
-.sidebar-archive-header {
-  color: #fff;
-}
-
 /* Sticky sidebar
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the
