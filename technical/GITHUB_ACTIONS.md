@@ -43,15 +43,16 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew clean build #(2)
-      env: #(3)
-        GITHUB_USERNAME: "OWNER"
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      env: 
+        GITHUB_USERNAME: "OWNER" #(3)
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #(4)
 ```
 
 A few points to remember:
 - (1): By default, all actions are triggered on a push action.
 - (2): This is a default for building a Gradle project. It may differ in some cases, please feel free to adjust it.
-- (3): If the Gradle project is depending on a CoMPAS specific[Github Package](https://github.com/orgs/com-pas/packages), you have to add some environment variables. For more information, check the [Github Packages]() page (this is still a [TODO](https://github.com/com-pas/compas-architecture/issues/98)).
+- (3): Only applicable if your repository is depending on our [Github Package](https://github.com/orgs/com-pas/packages). The GITHUB_TOKEN needs to be set with something (value doesn't matter) to give your access to the Github Packages during build.
+- (4): Again, only applicable if your repository is depending on our Github Packages. The GITHUB_TOKEN gives you access to the Github Packages during build.
 
 ### REUSE check
 For keeping our copyright and licensing information up to date and correct, we use [REUSE](https://reuse.software/) to check this. This is also configured for every separate repository in an easy manner: just create a `reuse.yml` file in the `.github/workflows` directory containing the following source code:
@@ -141,7 +142,7 @@ jobs:
 
 A few points to remember:
 - (1): By default, all actions are triggered on a push action.
-- (2): Only applicable if your repository is depending on our Github Packages. The GITHUB_TOKEN needs to be set with something (value doesn't matter) to give your access to the Github Packages during build.
+- (2): Only applicable if your repository is depending on our [Github Package](https://github.com/orgs/com-pas/packages). The GITHUB_TOKEN needs to be set with something (value doesn't matter) to give your access to the Github Packages during build.
 - (3): Again, only applicable if your repository is depending on our Github Packages. The GITHUB_TOKEN gives you access to the Github Packages during build.
 - (4): Replace the `<insert project key>` with the project key you copied.
 
