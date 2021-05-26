@@ -33,22 +33,24 @@ The responsibility of the repository classes is to retrieve, store and delete en
 Nothing more than that.
 
 The Service class contains some logic regarding versions and private elements.
-- findSCLByUUID: Retrieve the latest version of an SCL with a UUID for a specific type of SCL.
-- createSCL: Stores a first version (1.0.0) of the SCL. Also adding the type and name as private elements to the SCL.
-- updateSCL: Retrieve the latest version. Copy the private elements from that record. Add a historical record to the Header. 
+- list: Returns the ID and Latest version of all SCL found for a specific type of SCL.
+- listVersionsByUUID: Returns all stored versions of a specific SCL found.
+- findByUUID: Retrieve the latest version of an SCL with a UUID for a specific type of SCL. 
+  Or if the version is passed that specific version of an SCL.
+- create: Stores a first version (1.0.0) of the SCL. Also adding the type and name as private elements to the SCL.
+- update: Retrieve the latest version. Copy the private elements from that record. Add a historical record to the Header. 
   Determine the new version, using the latest version and ChangeSetType.
   Depending on if we want to keep historical versions of the SCL.
   - Keep history: Add the new SCP to the storage with the new version.
   - No history: Update the existing SCP in the storage.
-- deleteSCL: Remove (all versions) of the SCL from the storage.
+- delete: Remove (all versions) of the SCL from the storage. Or if the version is passed that specific version of the SCL.
 
 ### BaseX
-There a some Basex specific choices made in storing the SCL. 
+There a some BaseX specific choices made in storing the SCL. 
 - For every type of SCL a separate database is created. This is quite easy done in BaseX.
   ![Databases](images/CoMPAS-SclDataService-Databases.png)
-- In these databases the SCL will be stored as "\<uuid\>/\<major-version\>/\<minor-version\>/\<patch-version\>". 
+- In these databases the SCL will be stored as "\<uuid\>/\<major-version\>/\<minor-version\>/\<patch-version\>/scl.xml". 
   This way it will be easy to store the different version and find the latest version.
-  Version part may be optional if no history will be saved.
-  
+
 ### PostgreSQL
 TODO
