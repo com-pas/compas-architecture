@@ -23,7 +23,7 @@ Under features make sure that the option "Issues" and "Projects" are selected.
 There should now be two new tabs "Issues" and "Projects" available to the left of "Settings".
 
 Next go to the tab "Projects" and create a new project board (right top button).
-Give the project board a new name like "CoMPAS \<Project> Board", give it a description if desired, use the template "Basic kanban".
+Give the project board a new name like "CoMPAS \<Project\> Board", give it a description if desired, use the template "Basic kanban".
 Now create the project board. This project board will be used to have an overview on repository level with all issues and pull requests.<br/>
 Next the project board is shown. Delete the notes that are automatically created.<br/> 
 Now for each column select "Manage automation" under the "...". Change the automation according to the table below and update the settings.
@@ -70,14 +70,14 @@ jobs:
         uses: takanabe/github-actions-automate-projects@v0.0.2
         if: github.event_name == 'issues' && github.event.action == 'opened'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ORG_GITHUB_ACTION_SECRET }}
           GITHUB_PROJECT_URL: https://github.com/orgs/com-pas/projects/1 #(2)
           GITHUB_PROJECT_COLUMN_NAME: To do
       - name: add-new-pull-request-to-organization-based-project-column #(Step 4)
         uses: takanabe/github-actions-automate-projects@v0.0.2
         if: github.event_name == 'pull_request' && github.event.action == 'opened'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ORG_GITHUB_ACTION_SECRET }}
           GITHUB_PROJECT_URL: https://github.com/orgs/com-pas/projects/2 #(3)
           GITHUB_PROJECT_COLUMN_NAME: To do
 ```
@@ -113,3 +113,12 @@ Project board "CoMPAS Pull Request Overview Board":
 | Issue: _None_                |Issue: _None_                                | Issue: _None_                                      |
 | Pull Request: Newly added    |Pull Request: Reopened, Approved by reviewer,| Pull Request: Merged, Closed with unmerged commits |
 |                              | Pending approval by reviewer                |                                                    |
+
+### Adding Secret ORG_GITHUB_ACTION_SECRET
+Tot access the project boards of the organization a secret ORG_GITHUB_ACTION_SECRET needs to be created.
+- First create a new personal access token from https://github.com/settings/tokens. Tokens can only be created as personal tokens.
+  The token also must have the right "admin:org". This will indirectly also set the right "write:org" and "read:org". 
+- Next create a new organisation secret from https://github.com/organization_name/repository_name/settings/secrets with the value of 
+  personal access token you created above. Name the secret ORG_GITHUB_ACTION_SECRET.
+
+Now the action can use this secret to add the issues and pull request to the project boards of the organization.
