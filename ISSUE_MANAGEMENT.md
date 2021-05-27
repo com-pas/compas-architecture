@@ -44,10 +44,6 @@ To automatically adding issues and pull request to a project board we add a gith
 In the repository create a file "automate_projects.yml" in the directory ".github/workflows" containing the following source code: 
 
 ```yaml
-# SPDX-FileCopyrightText: 2021 Alliander N.V.
-#
-# SPDX-License-Identifier: Apache-2.0
-
 name: Add issues and pull request to project boards
 
 on: [ issues, pull_request ]
