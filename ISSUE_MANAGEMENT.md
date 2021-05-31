@@ -53,28 +53,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: add-new-issues-to-repository-based-project-column #(Step 1)
-        uses: takanabe/github-actions-automate-projects@v0.0.2
+        uses: docker://takanabe/github-actions-automate-projects:v0.0.1
         if: github.event_name == 'issues' && github.event.action == 'opened'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_PROJECT_URL: https://github.com/com-pas/compas-architecture/projects/2 #(1)
           GITHUB_PROJECT_COLUMN_NAME: To do
       - name: add-new-pull-request-to-repository-based-project-column #(Step 2)
-        uses: takanabe/github-actions-automate-projects@v0.0.2
+        uses: docker://takanabe/github-actions-automate-projects:v0.0.1
         if: github.event_name == 'pull_request' && github.event.action == 'opened'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_PROJECT_URL: https://github.com/com-pas/compas-architecture/projects/2 #(1)
           GITHUB_PROJECT_COLUMN_NAME: To do
       - name: add-new-issues-to-organization-based-project-column #(Step 3)
-        uses: takanabe/github-actions-automate-projects@v0.0.2
+        uses: docker://takanabe/github-actions-automate-projects:v0.0.1
         if: github.event_name == 'issues' && github.event.action == 'opened'
         env:
           GITHUB_TOKEN: ${{ secrets.ORG_GITHUB_ACTION_SECRET }}
           GITHUB_PROJECT_URL: https://github.com/orgs/com-pas/projects/1 #(2)
           GITHUB_PROJECT_COLUMN_NAME: To do
       - name: add-new-pull-request-to-organization-based-project-column #(Step 4)
-        uses: takanabe/github-actions-automate-projects@v0.0.2
+        uses: docker://takanabe/github-actions-automate-projects:v0.0.1
         if: github.event_name == 'pull_request' && github.event.action == 'opened'
         env:
           GITHUB_TOKEN: ${{ secrets.ORG_GITHUB_ACTION_SECRET }}
