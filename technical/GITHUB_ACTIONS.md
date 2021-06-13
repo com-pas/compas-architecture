@@ -12,6 +12,7 @@ Within CoMPAS, we define the following 'must have' Github Actions:
   - [Building](#building)
   - [REUSE check](#reuse-check)
   - [SonarCloud](#sonarcloud)
+  - [Docker Hub Deployment](#docker-hub-deployment)
 
 More to follow.
 
@@ -81,7 +82,7 @@ For transparancy, CoMPAS repositories also include a REUSE badge in their README
 
 Two steps are needed to get a REUSE badge to work:
 
-1. Register the Repository at the [REUSE website](https://api.reuse.software/register). For name and email, check the [Slack channel](https://app.slack.com/client/TLU68MTML/C01926K9D39).
+1. Register the Repository at the [REUSE website](https://api.reuse.software/register). For name and email, check the [Slack channel](https://app.slack.com/client/TLU68MTML).
 2. Add the following code to the README:
    
 ```md
@@ -142,8 +143,52 @@ jobs:
 
 A few points to remember:
 - (1): By default, all actions are triggered on a push action.
-- (2): Only applicable if your repository is depending on our [Github Package](https://github.com/orgs/com-pas/packages). The GITHUB_TOKEN needs to be set with something (value doesn't matter) to give your access to the Github Packages during build.
+- (2): Only applicable if your repository is depending on our [Github Package](https://github.com/orgs/com-pas/packages). The GITHUB_USERNAME needs to be set with something (value doesn't matter) to give your access to the Github Packages during build.
 - (3): Again, only applicable if your repository is depending on our Github Packages. The GITHUB_TOKEN gives you access to the Github Packages during build.
 - (4): Replace the `<insert project key>` with the project key you copied.
 
 Once this is set, it's all done!
+
+### Docker Hub Deployment
+For automatic deployment of our microservices, CoMPAS uses Docker Hub as the central docker image repository. This way, all Docker images can be pulled from a central image repository.
+
+This step is easy to configure. Just create a `dockerhub_deployment.yml` file in the `.github/workflows` directory containing the following source code:
+
+```yaml
+name: Docker Hub Deployment
+
+on:
+  release:
+    types: [released] #(1)
+
+jobs:
+  push_to_registry:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Login to Docker Hub #(2)
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - name: Build and publish Docker Image #(3)
+        run: ./gradlew clean build -Dquarkus-profile=publishNativeImage
+        env:
+          GITHUB_USERNAME: "OWNER" #(4)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #(5)
+```
+
+A few points to remember:
+- (1): By default, the docker image is only deployed on release. This way we have a strict deployment flow, and versions always have the same content. For more information about types of releases, check the [Github Actions documentation](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#release).
+- (2): Before deploying to Docker Hub, we need to login first. This can be done by executing a bash command. In this example, `DOCKER_USERNAME` and `DOCKER_PASSWORD` are used, which are secrets being stored in each repository. For more information about the username and password, check the [Slack channel](https://app.slack.com/client/TLU68MTML).
+- (3): Building and publishing the docker image is build tool / framework specific. By default, CoMPAS services are using Quarkus and Gradle. Deploying to Docker Hub is quite easy using Quarkus and Gradle, it's just a matter of building in combination with setting some properties. In this example, we use the `quarkus-profile` parameter instead of including all the parameters. This way, we can define profile specific properties in our `application.properties` file (For more information about this, check our [Docker Hub Deployment page](./DEPLOYMENT.md)):
+
+```ini
+%publishNativeImage.quarkus.native.container-build=true
+%publishNativeImage.quarkus.container-image.build=true
+%publishNativeImage.quarkus.container-image.group=lfenergycompas
+%publishNativeImage.quarkus.container-image.name=compas-scl-data-service
+%publishNativeImage.quarkus.container-image.push=true
+```
+
+- (4): Only applicable if your repository is depending on our [Github Package](https://github.com/orgs/com-pas/packages). The GITHUB_USERNAME needs to be set with something (value doesn't matter) to give your access to the Github Packages during build.
+- (5): Again, only applicable if your repository is depending on our Github Packages. The GITHUB_TOKEN gives you access to the Github Packages during build.
