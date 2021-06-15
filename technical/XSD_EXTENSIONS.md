@@ -21,31 +21,14 @@ Project specific XSD schemas can be defined within the project itself. By using 
 If we need CoMPAS-broad specific XSD schemas, these can be added to the [XSD repository](https://github.com/com-pas/compas-scl-xsd). **This means that during the build of the SCL XSD library, this include/import/use process should be done**.
 
 ### Example
-Upon the base SCL XSD schemas, we have a schema named `extension.xsd` containing the following:
-
-```xml
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-
-<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
-<xs:element name="Extension" type="reqExtension" />
-
-<xs:complexType name="reqExtension">
-    <xs:sequence>
-        <xs:element name="MsgId" type="xs:string" minOccurs="0" />
-        <xs:element name="MsgDesc" type="xs:string" minOccurs="0" />
-    </xs:sequence>
-</xs:complexType>
-```
-
-Let's say you want to use this `Extension` named element inside your own XSD (in our case one of the base SCL XSD schemas). This can be done quite easily by doing:
+Let's say you want to use an `Extension` element that has been declared in a `extension.xsd` file. See the following:
 
 ```xml
 <xs:schema attributeFormDefault="unqualified"
 elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 <!-- #(1) -->
-<xs:include schemaLocation="header.xsd" /> 
+<xs:include schemaLocation="extension.xsd" /> 
 
 <xs:element name="Substation">
     <xs:complexType>
@@ -53,14 +36,34 @@ elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
             ...
 
             <!-- #(2) -->
-            <xs:element name="Extension" type="reqExtension" />
+            <xs:element name="Extension" type="tExtension" />
 
             ...
         </xs:sequence>
     </xs:complexType>
 </xs:element>
 ```
+- (1): Include the XSD schema / extension. (If the namespace of this schema is different, use the xsd:import element as stated above).
+- (2): Use the element where you want in the current XSD schema.
 
-Few points to remember:
-- (1): Include other XSD schemas. (If the namespace is different, use the xsd:import element as stated above).
-- (2): Use the element where you want in the XSD schema.
+This example includes the following `extension.xsd`:
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- (1) -->
+<xs:element name="Extension" type="tExtension" />
+
+<!-- (2) -->
+<xs:simpleType name="tExtension">
+    <xs:restriction base="xs:normalizedString">
+        <xs:minLength value="1"/>
+        <xs:maxLength value="255"/>
+        <xs:pattern value=".+/.+(/.+)*"/>
+    </xs:restriction>
+</xs:simpleType>
+```
+- (1): Besides declared types, elements can also be declared for usage outside this XSD.
+- (2): Types can be declared, including your own specific validation rules.
