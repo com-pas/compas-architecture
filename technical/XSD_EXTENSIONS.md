@@ -18,7 +18,10 @@ XSD schema extensions can be included in the base SCL XSD schemas by using the [
 Project specific XSD schemas can be defined within the project itself. By using the previous import and include statements, they can be included and used. **This means that during unpacking the base SCL XSD library, this include/import/use process should be added before generating classes**.
 
 #### CoMPAS-broad XSD extensions
-If we need CoMPAS-broad specific XSD schemas, these can be added to the [XSD repository](https://github.com/com-pas/compas-scl-xsd). **This means that during the build of the SCL XSD library, this include/import/use process should be done**.
+If we need CoMPAS-broad specific XSD schemas, these can be added to the [XSD repository](https://github.com/com-pas/compas-scl-xsd). 
+**This means that during the build of the SCL XSD library, this include/import/use process should be done**.
+
+Some examples of CoMPAS-broad XSD extensions would be a filename element, and a SCL file type element containing the type of SCL instead of checking the extension of the configuration file each time.
 
 ### Example
 Let's say you want to use an `Extension` element that has been declared in a `extension.xsd` file. See the following:
