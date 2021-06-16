@@ -33,3 +33,13 @@ Third party microservices can be incorporated in an end user application or can 
 
 Deployment is done by the users of CoMPAS and out of scope for the project.
 
+### CoMPAS Deployment
+Below describes the current deployment view of the CoMPAS containers that are available.
+This view will be updated during time to add the new components that are build.
+
+![CoMPAS Deploment View](images/CoMPAS-DeploymentView.png)
+
+The user uses a browser to open the OpenSCD editor from the CoMPAS OpenSCD Container. In this editor there are plugins
+available to use the XML REST Services from CoMPAS to open and save SCL files or use a mapper to converted files.
+
+The SCL files are stored in a database, for instance BaseX, that uses a volume to store the data outside the container.
