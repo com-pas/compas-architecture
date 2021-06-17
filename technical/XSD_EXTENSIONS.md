@@ -5,18 +5,18 @@ SPDX-License-Identifier: CC-BY-4.0
 -->
 
 ## XSD Extensions
-For generating the SCL classes, we use the official IEC SCL XSD schemas. These are stored in the [XSD repository](https://github.com/com-pas/compas-scl-xsd). Every week, different Github Actions check for newer version of these XSD schemas. In case newer versions are available, the Github Actions fail and people will get notifications.
+For generating the SCL classes, we use the official IEC SCL XSD schemas. These are stored in the `scl-extension` module of the [CoMPAS Core repository](https://github.com/com-pas/compas-core). An other option was using the [CoMPAS IEC XSD repository](https://github.com/com-pas/compas-scl-xsd), but we want to keep that repository dedicated to the IEC XSD schemas.
 
 In case organizations need some specific information in their SCL files, so called "XSD extensions" can be used. These are separate XSD files containing additional fields or other information that can be used.
 
 ### Using your own XSD extensions
-Because the SCL XSD schemas are stored in a separate repository and are available as a separate [library](https://github.com/com-pas/compas-scl-xsd/packages/817016), every project that wants to use it needs to include the dependency and unpack the schemas. When doing this, a project is free of how to use them.
+Because the SCL XSD schemas are stored in a separate module and are available as a separate [library](https://github.com/com-pas/compas-core/packages/850927), every project that wants to use it needs to include the dependency and unpack the schemas. When doing this, a project is free of how to use them.
 
 #### CoMPAS-broad XSD extensions
-In case we need CoMPAS-broad specific XSD schemas, these can be added to the [XSD repository](https://github.com/com-pas/compas-scl-xsd). Added them is enough, the project including the dependency needs to make sure it's used correctly, e.g. validation should be done by the application itself.
+In case we need CoMPAS-broad specific XSD schemas, these can be added to the `scl-extension` module of the [CoMPAS Core repository](https://github.com/com-pas/compas-core) as stated above. Added them is enough, the project including the dependency needs to make sure it's used correctly, e.g. validation should be done by the application itself.
 
 ### Example
-Let's say you want to use a `Filename` element and a `FileType` element, which has been declared in `SCL_CoMPAS.xsd` as found in the [CoMPAS XSD Repository](https://github.com/com-pas/compas-scl-xsd). We do this by adding:
+Let's say you want to use a `Filename` element and a `FileType` element, which has been declared in `SCL_CoMPAS.xsd` as found in the `scl-extension` module in the [CoMPAS Core Repository](https://github.com/com-pas/compas-core). We do this by adding:
 
 ```xml
 <!-- #(1) -->
