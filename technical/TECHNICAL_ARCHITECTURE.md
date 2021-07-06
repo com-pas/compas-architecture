@@ -49,3 +49,5 @@ Detailed information about the different components can be found at the follow l
 | Component |  |  |
 | --- | --- | --- | 
 | CoMPAS SCL Data Service | [Repository](https://github.com/com-pas/compas-scl-data-service)  | [Documentation](https://github.com/com-pas/compas-scl-data-service/blob/doc/compas-scl-data-service.md) |
+| CoMPAS OpenSCD | [Repository](https://github.com/com-pas/compas-open-scd)  |  |
+| CoMPAS CIM Mapping | [Repository](https://github.com/com-pas/compas-cim-mapping)  |  |
