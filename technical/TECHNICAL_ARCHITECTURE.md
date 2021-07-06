@@ -43,3 +43,9 @@ The user uses a browser to open the OpenSCD editor from the CoMPAS OpenSCD Conta
 available to use the XML REST Services from CoMPAS to open and save SCL files or use a mapper to converted files.
 
 The SCL files are stored in a database, for instance BaseX, that uses a volume to store the data outside the container.
+
+Detailed information about the different components can be found at the follow links.
+
+| Component |  |  |
+| --- | --- | --- | 
+| CoMPAS SCL Data Service | [Repository](https://github.com/com-pas/compas-scl-data-service)  | [Documentation](https://github.com/com-pas/compas-scl-data-service/blob/doc/compas-scl-data-service.md) |
