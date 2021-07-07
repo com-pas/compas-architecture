@@ -31,7 +31,6 @@ sonar-project.properties
 /nbbuild/
 /dist/
 /nbdist/
-/.nb-gradle/
 build/
 
 ### VS Code ###
