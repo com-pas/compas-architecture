@@ -20,40 +20,42 @@ Github Actions are configured using YAML files. These files are stored in the `.
 
 ### Building
 All source code repositories need some kind of building step.
-By default, all source code repositories use Gradle as the build tool.
+By default, all source code repositories use Maven as the build tool.
 
-This building step is pretty easy to configure. Just create a `gradle_build.yml` file in the `.github/workflows` directory containing the following source code:
+This building step is pretty easy to configure. Just create a `maven_build.yml` file in the `.github/workflows` directory containing the following source code:
 
 ```yaml
-name: Gradle Build
+name: Maven Build
 
 on: push #(1)
 
 jobs:
   build:
-
+    name: Build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.11
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.11
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew clean build #(2)
-      env: 
-        GITHUB_USERNAME: "OWNER" #(3)
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #(4)
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
+      - name: Create custom Maven Settings.xml #(2)
+        uses: whelk-io/maven-settings-xml-action@v18
+        with:
+          output_file: custom_maven_settings.xml
+          servers: '[{ "id": "github-packages-compas", "username": "OWNER", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
+      - name: Build with Maven
+        run: mvn -s custom_maven_settings.xml -B clean verify #(3)
 ```
 
 A few points to remember:
 - (1): By default, all actions are triggered on a push action.
-- (2): This is a default for building a Gradle project. It may differ in some cases, please feel free to adjust it.
-- (3): Only applicable if your repository is depending on our [Github Package](https://github.com/orgs/com-pas/packages). The GITHUB_TOKEN needs to be set with something (value doesn't matter) to give your access to the Github Packages during build.
-- (4): Again, only applicable if your repository is depending on our Github Packages. The GITHUB_TOKEN gives you access to the Github Packages during build.
+- (2): Only applicable if your repository is depending on our Github Packages.
+  This step creates a custom settings.xml for authenticating for Github Packages. For more information,
+  check the [Contributing file](https://github.com/com-pas/contributing/blob/master/CONTRIBUTING.md).
+- (3): This is a default for building a Maven project. It may differ in some cases, please feel free to adjust it.
 
 ### REUSE check
 For keeping our copyright and licensing information up to date and correct, we use [REUSE](https://reuse.software/) to check this. This is also configured for every separate repository in an easy manner: just create a `reuse.yml` file in the `.github/workflows` directory containing the following source code:
@@ -102,7 +104,7 @@ For static code analysis, CoMPAS is using [SonarCloud](https://sonarcloud.io/). 
 4. Select the repository to be analyzed, click Set Up.
 5. Choose the Analysis Method "With Github Actions".
 6. It first tells you to create a SONAR_TOKEN secret in your repo. Go to your repository -> Settings - Secrets -> New repository secret -> Name: SONAR_TOKEN. Value: Copy the value from the SonarCloud website into here. Then save the secret
-7. Select Gradle as the option that best describes our build and **remember the projectKey**. and create a `sonarcloud_analysis.yml` file in the `.github/workflows` directory containing the following source code running.
+7. Select Maven as the option that best describes our build and **remember the projectKey**. and create a `sonarcloud_analysis.yml` file in the `.github/workflows` directory containing the following source code running.
 
 ```yaml
 name: SonarCloud Analysis
@@ -113,6 +115,8 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
     steps:
       - uses: actions/checkout@v2
         with:
@@ -127,25 +131,35 @@ jobs:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
-      - name: Cache Gradle packages
+      - name: Cache Maven packages
         uses: actions/cache@v1
         with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-          restore-keys: ${{ runner.os }}-gradle
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Create custom Maven Settings.xml #(2)
+        uses: whelk-io/maven-settings-xml-action@v18
+        with:
+          output_file: custom_maven_settings.xml
+          servers: '[{ "id": "github-packages-compas", "username": "OWNER", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
       - name: Build and analyze
         env:
-          GITHUB_USERNAME: "OWNER" #(2)
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #(3)
+          GITHUB_USERNAME: "OWNER"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew build jacocoTestReport sonarqube -Dsonar.projectKey=<insert project key> -Dsonar.organization=com-pas -Dsonar.host.url=https://sonarcloud.io --info #(4)
+        run: | #(3)
+          mvn -s custom_maven_settings.xml -B -Psonar \
+          -Dsonar.projectKey=<insert project key> \
+          -Dsonar.organization=com-pas \
+          -Dsonar.host.url=https://sonarcloud.io \
+          verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 ```
 
 A few points to remember:
 - (1): By default, all actions are triggered on a push action.
-- (2): Only applicable if your repository is depending on our [Github Package](https://github.com/orgs/com-pas/packages). The GITHUB_USERNAME needs to be set with something (value doesn't matter) to give your access to the Github Packages during build.
-- (3): Again, only applicable if your repository is depending on our Github Packages. The GITHUB_TOKEN gives you access to the Github Packages during build.
-- (4): Replace the `<insert project key>` with the project key you copied.
+- (2): Only applicable if your repository is depending on our [Github Package](https://github.com/orgs/com-pas/packages).
+  We need a custom `settings.xml` having the credentials. For more information, check our [Contributing](https://github.com/com-pas/contributing/blob/master/CONTRIBUTING.md).
+- (3): Replace the `<insert project key>` with the project key you copied.
 
 Once this is set, it's all done!
 

@@ -17,8 +17,8 @@ Java 11 is chosen as programming language.
 - Developers are available
 - Java is familiar within LFE projects
 
-## Java build environment - Gradle
-For building the applications we use Gradle. Gradle is good suppored in CI/CD.
+## Java build environment - Maven
+For building the applications we use Maven. Maven is good supported in CI/CD.
 
 ## Microservice deployment - Docker
 Microservices are deployed as Linux based Docker container. Advantages of deployment in Docker container:

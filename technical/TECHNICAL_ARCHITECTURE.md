@@ -14,7 +14,7 @@ This section describes the deployment view of CoMPAS.
 
 The diagram above shows the deployment view. Blue components are within scope of the CoMPAS project.
 
-**CoMPAS microservice**s are built from Java source code on Github (not shown) using the Gradle build proces. This results in a compiled java application. 
+**CoMPAS microservice**s are built from Java source code on Github (not shown) using the Maven build process. This results in a compiled java application. 
 
 The result of the CI/CD is a **Container Image** in the Docker Registry. A **Container Image** contains one **CoMPAS microservice**. More than one CoMPAS microservice may be present in the image only if they are closely related and should be deployed and scaled together.
 
