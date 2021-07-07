@@ -52,8 +52,7 @@ jobs:
 
 A few points to remember:
 - (1): By default, all actions are triggered on a push action.
-- (2): Only applicable if your repository is depending on our Github Packages.
-  This step creates a custom settings.xml for authenticating for Github Packages. For more information,
+- (2): This step creates a custom settings.xml for authenticating for Github Packages. For more information,
   check the [Contributing file](https://github.com/com-pas/contributing/blob/master/CONTRIBUTING.md).
 - (3): This is a default for building a Maven project. It may differ in some cases, please feel free to adjust it.
 
@@ -157,8 +156,8 @@ jobs:
 
 A few points to remember:
 - (1): By default, all actions are triggered on a push action.
-- (2): Only applicable if your repository is depending on our [Github Package](https://github.com/orgs/com-pas/packages).
-  We need a custom `settings.xml` having the credentials. For more information, check our [Contributing](https://github.com/com-pas/contributing/blob/master/CONTRIBUTING.md).
+- (2): Creates a custom `settings.xml` having the credentials for the Github Packages.
+  For more information, check our [Contributing](https://github.com/com-pas/contributing/blob/master/CONTRIBUTING.md).
 - (3): Replace the `<insert project key>` with the project key you copied.
 
 Once this is set, it's all done!
