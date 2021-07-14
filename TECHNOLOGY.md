@@ -101,7 +101,21 @@ It's optimally used in combination with XML schema (XSD, RELAX NG).
 **Cons RDF4J**
 - If you don't have experience with triples, it might take a while before understanding it all.
 
+### MapStruct
 
+MapStruct is a Java framework to do bean mapping. MapStruct is for instance used in the CIM Mapping for mapping data
+between CIM classes and IEC 61850 classes. More information can be found on https://mapstruct.org/.
+
+**Pros**
+- Mapping done in a separate interface (Mapper interface) with annotations
+- Active project on [GitHub](https://github.com/mapstruct/mapstruct)
+- MapStruct project is aware of Quarkus, see this [article](https://mapstruct.org/news/2019-12-06-mapstruct-and-quarkus/)
+- Integration with all kind of [IDEs](https://mapstruct.org/documentation/ide-support/)
+- Performance also seems to be fast, because no Reflection used, but a generated classes. 
+  [Baeldung Overview](https://www.baeldung.com/java-performance-mapping-frameworks)
+
+**Cons**
+- Needs an annotation processor in Maven to generate the classes from the interface
 
 ## Java framework - Quarkus
 For the framework to be used with Java we choose [Quarkus](https://quarkus.io/).
