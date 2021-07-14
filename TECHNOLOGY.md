@@ -111,6 +111,8 @@ between CIM classes and IEC 61850 classes. More information can be found on http
 - Active project on [GitHub](https://github.com/mapstruct/mapstruct)
 - MapStruct project is aware of Quarkus, see this [article](https://mapstruct.org/news/2019-12-06-mapstruct-and-quarkus/)
 - Integration with all kind of [IDEs](https://mapstruct.org/documentation/ide-support/)
+- Performance also seems to be fast, because no Reflection used, but a generated classes. 
+  [Baeldung Overview](https://www.baeldung.com/java-performance-mapping-frameworks)
 
 **Cons**
 - Needs an annotation processor in Maven to generate the classes from the interface
