@@ -38,9 +38,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.11
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2.3.0
         with:
-          java-version: 1.11
+          distribution: 'zulu'
+          java-version: '11'
       - name: Create custom Maven Settings.xml #(2)
         uses: whelk-io/maven-settings-xml-action@v18
         with:
@@ -120,18 +121,19 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
+      - name: Set up JDK 1.11
+        uses: actions/setup-java@v2.3.0
         with:
-          java-version: 1.11
+          distribution: 'zulu'
+          java-version: '11'
       - name: Cache SonarCloud packages
-        uses: actions/cache@v1
+        uses: actions/cache@v2.1.6
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
       - name: Cache Maven packages
-        uses: actions/cache@v1
+        uses: actions/cache@v2.1.6
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -143,8 +145,6 @@ jobs:
           servers: '[{ "id": "github-packages-compas", "username": "OWNER", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
       - name: Build and analyze
         env:
-          GITHUB_USERNAME: "OWNER"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: | #(3)
           mvn -s custom_maven_settings.xml -B -Psonar \
@@ -179,21 +179,40 @@ jobs:
     name: Build and publish
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Login to Docker Hub #(2)
-        run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
-      - name: Build and publish Docker Image #(3)
-        run: ./gradlew clean build -Dquarkus-profile=publishNativeImage
-        env:
-          GITHUB_USERNAME: "OWNER" #(4)
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #(5)
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      - name: Extract tag name #(3)
+        id: extract_tagname
+        shell: bash
+        # Extra the tagname form the git reference, value of GITHUB_REF will be something like refs/tags/<tag_name>.
+        run: echo "##[set-output name=tagname;]$(echo ${GITHUB_REF##*/})"
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2.3.0
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+      - name: Create custom Maven Settings.xml
+        uses: whelk-io/maven-settings-xml-action@v18
+        with:
+          output_file: custom_maven_settings.xml #(4)
+          servers: '[{ "id": "github-packages-compas", "username": "OWNER", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
+      - name: Set version with Maven
+        run: mvn -B versions:set -DprocessAllModules=true -DnewVersion=${{ steps.extract_tagname.outputs.tagname }}
+      - name: Deploy with Maven to GitHub Packages and Docker Hub #(5)
+        run: ./mvnw -B -s custom_maven_settings.xml -Prelease,native clean deploy
 ```
 
 A few points to remember:
 - (1): By default, the docker image is only deployed on release. This way we have a strict deployment flow, and versions always have the same content. For more information about types of releases, check the [Github Actions documentation](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#release).
-- (2): Before deploying to Docker Hub, we need to login first. This can be done by executing a bash command. In this example, `DOCKER_HUB_USERNAME` and `DOCKER_HUB_PASSWORD` are used, which are secrets stored at [CoMPAS organization](https://github.com/organizations/com-pas/settings/secrets/actions). For more information about the username and password, ask in the the [Slack channel](https://app.slack.com/client/TLU68MTML).
-- (3): Building and publishing the docker image is build tool / framework specific. By default, CoMPAS services are using Quarkus and Gradle. Deploying to Docker Hub is quite easy using Quarkus and Gradle, it's just a matter of building in combination with setting some properties. In this example, we use the `quarkus-profile` parameter instead of including all the parameters. This way, we can define profile specific properties in our `application.properties` file (For more information about this, check our [Docker Hub Deployment page](./DEPLOYMENT.md)):
+- (2): Before deploying to Docker Hub, we need to login first. This can be done by executing a GitHub Action. In this example, `DOCKER_HUB_USERNAME` and `DOCKER_HUB_PASSWORD` are used, which are secrets stored at [CoMPAS organization](https://github.com/organizations/com-pas/settings/secrets/actions). For more information about the username and password, ask in the the [Slack channel](https://app.slack.com/client/TLU68MTML).
+- (3): Extract the tag name from Git and use that as version to be set with Maven (${{ steps.extract_tagname.outputs.tagname }}).
+- (4): Creates a custom `settings.xml` having the credentials for the Github Packages.
+  For more information, check our [Contributing](https://github.com/com-pas/contributing/blob/master/CONTRIBUTING.md).
+- (5): Building and publishing the docker image is build tool / framework specific. By default, CoMPAS services are using Quarkus and Maven. Deploying to Docker Hub is quite easy using Quarkus and maven, it's just a matter of building in combination with setting some properties. In this example, we use the `quarkus-profile` parameter instead of including all the parameters. This way, we can define profile specific properties in our `application.properties` file (For more information about this, check our [Docker Hub Deployment page](./DEPLOYMENT.md)):
 
 ```ini
 %publishNativeImage.quarkus.native.container-build=true
@@ -202,6 +221,3 @@ A few points to remember:
 %publishNativeImage.quarkus.container-image.name=compas-scl-data-service
 %publishNativeImage.quarkus.container-image.push=true
 ```
-
-- (4): Only applicable if your repository is depending on our [Github Package](https://github.com/orgs/com-pas/packages). The GITHUB_USERNAME needs to be set with something (value doesn't matter) to give your access to the Github Packages during build.
-- (5): Again, only applicable if your repository is depending on our Github Packages. The GITHUB_TOKEN gives you access to the Github Packages during build.
