@@ -114,11 +114,11 @@ Project board "CoMPAS Pull Request Overview Board":
 | Pull Request: Newly added    |Pull Request: Reopened, Approved by reviewer,| Pull Request: Merged, Closed with unmerged commits |
 |                              | Pending approval by reviewer                |                                                    |
 
-### Adding Secret ORG_GITHUB_ACTION_SECRET
+### Adding Action Secret ORG_GITHUB_ACTION_SECRET
 Tot access the project boards of the organization a secret ORG_GITHUB_ACTION_SECRET needs to be created.
 - First create a new personal access token from https://github.com/settings/tokens. Tokens can only be created as personal tokens.
   The token also must have the right "admin:org". This will indirectly also set the right "write:org" and "read:org". 
-- Next create a new organisation secret from https://github.com/organization_name/repository_name/settings/secrets with the value of 
-  personal access token you created above. Name the secret ORG_GITHUB_ACTION_SECRET.
+- Next create a new organisation secret from https://github.com/organizations/com-pas/settings/secrets/actions with the value of 
+  personal access token you created above. Name the secret ORG_GITHUB_ACTION_SECRET. Make it available for public repositories.
 
 Now the action can use this secret to add the issues and pull request to the project boards of the organization.
