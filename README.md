@@ -25,10 +25,10 @@ The schedule for the next calls are:
 
 | |
 |-|
-|June 7 2021|
-|June 21 2021|
-|July 5 2021|
-|July 19 2021|
+|October 11 2021|
+|October 25 2021|
+|November 8 2021|
+|November 22 2021|
 
 ## Contributing
 Interested in contributing? Please read carefully the [CONTRIBUTING guidelines](https://com-pas.github.io/contributing/).
