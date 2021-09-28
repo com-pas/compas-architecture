@@ -25,14 +25,19 @@ The schedule for the next calls are:
 
 | |
 |-|
-|June 7 2021|
-|June 21 2021|
-|July 5 2021|
-|July 19 2021|
+|October 11 2021|
+|October 25 2021|
+|November 8 2021|
+|November 22 2021|
 
 ## Contributing
-Interested in contributing? Please read carefully the [CONTRIBUTING guidelines](https://github.com/com-pas/contributing/blob/master/CONTRIBUTING.md).
+Interested in contributing? Please read carefully the [CONTRIBUTING guidelines](https://com-pas.github.io/contributing/).
 
 ## Github Pages
-This site is provided as a [github pages site](https://com-pas.github.io/compas-architecture/). The content is maintained and edited on [Github](https://github.com/com-pas/compas-architecture). Contributers are only alowed to contribute by editing the content on Github and must do so by presenting their modifications as *pull-request* to the community. 
-The diagrams on this page are created using [DrawIO](https://github.com/jgraph/drawio-desktop/releases) and follow [Unified Modeling Language (UML)](https://www.omg.org/spec/UML/). The drawIO design file is available on this site: [/blob-files/CoMPAS.drawio](blob-files/CoMPAS.drawio). Modification made to UML diagrams on this site must be made in this file and the modified file must be part of the pull request.
+This site is provided as a [github pages site](https://com-pas.github.io/compas-architecture/). 
+The content is maintained and edited on [Github](https://github.com/com-pas/compas-architecture). 
+Contributors are only allowed to contribute by editing the content on Github and must do so by presenting their modifications as *pull-request* to the community. 
+The diagrams on this page are created using [DrawIO](https://github.com/jgraph/drawio-desktop/releases) 
+and follow [Unified Modeling Language (UML)](https://www.omg.org/spec/UML/). 
+The drawIO design file is available on this site: [/blob-files/CoMPAS.drawio](blob-files/CoMPAS.drawio). 
+Modification made to UML diagrams on this site must be made in this file and the modified file must be part of the pull request.

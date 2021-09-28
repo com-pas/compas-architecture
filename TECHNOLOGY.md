@@ -17,8 +17,8 @@ Java 11 is chosen as programming language.
 - Developers are available
 - Java is familiar within LFE projects
 
-## Java build environment - Gradle
-For building the applications we use Gradle. Gradle is good suppored in CI/CD.
+## Java build environment - Maven
+For building the applications we use Maven. Maven is good supported in CI/CD.
 
 ## Microservice deployment - Docker
 Microservices are deployed as Linux based Docker container. Advantages of deployment in Docker container:
@@ -71,7 +71,7 @@ It's optimally used in combination with XML schema (XSD, RELAX NG).
 ### Java frameworks for XML processing
 **Pros JAXB**
 - JAXB (Java Architecture for XML Binding) is a framework that allow mapping Java classes to XML representations
-- Memory efficient (for more information, take a look at the comparison in [CIM - 61850 Mapping technologies](./CIM_61850_MAPPING_MVP.md))
+- Memory efficient (for more information, take a look at the comparison in [CIM - 61850 Mapping technologies](archive/CIM_61850_MAPPING_MVP.md))
 - Uses the XJC tool available in the JDK, that compiles an XML schema file into Java classes annotated with JAXB annotations suitable for (un)marshalling. This way, a XML file can be easily build by inserting data into the models.
 
 **Cons JAXB**
@@ -101,7 +101,21 @@ It's optimally used in combination with XML schema (XSD, RELAX NG).
 **Cons RDF4J**
 - If you don't have experience with triples, it might take a while before understanding it all.
 
+### MapStruct
 
+MapStruct is a Java framework to do bean mapping. MapStruct is for instance used in the CIM Mapping for mapping data
+between CIM classes and IEC 61850 classes. More information can be found on https://mapstruct.org/.
+
+**Pros**
+- Mapping done in a separate interface (Mapper interface) with annotations
+- Active project on [GitHub](https://github.com/mapstruct/mapstruct)
+- MapStruct project is aware of Quarkus, see this [article](https://mapstruct.org/news/2019-12-06-mapstruct-and-quarkus/)
+- Integration with all kind of [IDEs](https://mapstruct.org/documentation/ide-support/)
+- Performance also seems to be fast, because no Reflection used, but a generated classes. 
+  [Baeldung Overview](https://www.baeldung.com/java-performance-mapping-frameworks)
+
+**Cons**
+- Needs an annotation processor in Maven to generate the classes from the interface
 
 ## Java framework - Quarkus
 For the framework to be used with Java we choose [Quarkus](https://quarkus.io/).

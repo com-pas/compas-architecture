@@ -14,7 +14,7 @@ This section describes the deployment view of CoMPAS.
 
 The diagram above shows the deployment view. Blue components are within scope of the CoMPAS project.
 
-**CoMPAS microservice**s are built from Java source code on Github (not shown) using the Gradle build proces. This results in a compiled java application. 
+**CoMPAS microservice**s are built from Java source code on Github (not shown) using the Maven build process. This results in a compiled java application. 
 
 The result of the CI/CD is a **Container Image** in the Docker Registry. A **Container Image** contains one **CoMPAS microservice**. More than one CoMPAS microservice may be present in the image only if they are closely related and should be deployed and scaled together.
 
@@ -33,3 +33,21 @@ Third party microservices can be incorporated in an end user application or can 
 
 Deployment is done by the users of CoMPAS and out of scope for the project.
 
+### CoMPAS Deployment
+Below describes the current deployment view of the CoMPAS containers that are available.
+This view will be updated during time to add the new components that are build.
+
+![CoMPAS Deploment View](images/CoMPAS-DeploymentView.png)
+
+The user uses a browser to open the OpenSCD editor from the CoMPAS OpenSCD Container. In this editor there are plugins
+available to use the XML REST Services from CoMPAS to open and save SCL files or use a mapper to converted files.
+
+The SCL files are stored in a database, for instance BaseX, that uses a volume to store the data outside the container.
+
+Detailed information about the different components can be found at the follow links.
+
+| Component |  |  |
+| --- | --- | --- | 
+| CoMPAS SCL Data Service | [Repository](https://github.com/com-pas/compas-scl-data-service)  | [Documentation](https://github.com/com-pas/compas-scl-data-service/blob/doc/compas-scl-data-service.md) |
+| CoMPAS OpenSCD | [Repository](https://github.com/com-pas/compas-open-scd)  |  |
+| CoMPAS CIM Mapping | [Repository](https://github.com/com-pas/compas-cim-mapping)  |  |
