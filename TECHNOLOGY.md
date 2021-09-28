@@ -71,7 +71,7 @@ It's optimally used in combination with XML schema (XSD, RELAX NG).
 ### Java frameworks for XML processing
 **Pros JAXB**
 - JAXB (Java Architecture for XML Binding) is a framework that allow mapping Java classes to XML representations
-- Memory efficient (for more information, take a look at the comparison in [CIM - 61850 Mapping technologies](./CIM_61850_MAPPING_MVP.md))
+- Memory efficient (for more information, take a look at the comparison in [CIM - 61850 Mapping technologies](archive/CIM_61850_MAPPING_MVP.md))
 - Uses the XJC tool available in the JDK, that compiles an XML schema file into Java classes annotated with JAXB annotations suitable for (un)marshalling. This way, a XML file can be easily build by inserting data into the models.
 
 **Cons JAXB**

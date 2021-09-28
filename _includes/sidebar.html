@@ -5,8 +5,9 @@ SPDX-License-Identifier: CC-BY-4.0
 -->
 
 <div class="sidebar">
-  <div class="container sidebar-sticky">
+  <div class="container">
     <div class="sidebar-about">
+      <img src="{{ site.baseurl }}/public/compas-horizontal-color.svg"/>
       <h2>
         <a href="{{ site.baseurl }}">
           {{ site.title }}
@@ -16,33 +17,28 @@ SPDX-License-Identifier: CC-BY-4.0
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == "/" %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
-      <a class="sidebar-nav-item{% if page.url == "FUNCTIONAL_ARCHITECTURE.html" %} active{% endif %}" href="{{ site.baseurl }}/FUNCTIONAL_ARCHITECTURE.html">Functional Architecture</a>
+      <a class="sidebar-nav-item{% if page.url == '/' %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
+      <a class="sidebar-nav-item{% if page.url == '/FUNCTIONAL_ARCHITECTURE.html' %} active{% endif %}" href="{{ site.baseurl }}/FUNCTIONAL_ARCHITECTURE.html">Functional Architecture</a>
       <ul class="nav-list ">
-        <li class="nav-list-item ">
-          <a href="{{ site.baseurl }}/CIM_61850_MAPPING.html" class="sidebar-nav-item">SSD Import from CIM</a>
+        <li class="nav-list-item">
+          <a class="sidebar-nav-item{% if page.url == '/CIM_61850_MAPPING.html' %} active{% endif %}" href="{{ site.baseurl }}/CIM_61850_MAPPING.html">SSD Import from CIM</a>
         </li>
       </ul>
-      <a class="sidebar-nav-item{% if page.url == "TECHNICAL_ARCHITECTURE.html" %} active{% endif %}" href="{{ site.baseurl }}/technical/TECHNICAL_ARCHITECTURE.html">Technical Architecture</a>
+      <a class="sidebar-nav-item{% if page.url == '/technical/TECHNICAL_ARCHITECTURE.html' %} active{% endif %}" href="{{ site.baseurl }}/technical/TECHNICAL_ARCHITECTURE.html">Technical Architecture</a>
       <ul class="nav-list ">
-        <li class="nav-list-item ">
-          <a href="{{ site.baseurl }}/technical/XSD_EXTENSIONS.html" class="sidebar-nav-item">XSD Extensions</a>
+        <li class="nav-list-item">
+          <a class="sidebar-nav-item{% if page.url == '/technical/XSD_EXTENSIONS.html' %} active{% endif %}" href="{{ site.baseurl }}/technical/XSD_EXTENSIONS.html">XSD Extensions</a>
         </li>
       </ul>
-      <a class="sidebar-nav-item{% if page.url == "DATABASE_MANAGEMENT.html" %} active{% endif %}" href="{{ site.baseurl }}/DATABASE_MANAGEMENT.html">Database Management</a>
-      <a class="sidebar-nav-item{% if page.url == "ISSUE_MANAGEMENT.html" %} active{% endif %}" href="{{ site.baseurl }}/ISSUE_MANAGEMENT.html">Issue Management</a>
-      <a class="sidebar-nav-item{% if page.url == "TECHNOLOGY.html" %} active{% endif %}" href="{{ site.baseurl }}/TECHNOLOGY.html">Technology</a>
-      <a class="sidebar-nav-item{% if page.url == "GLOSSARY.html" %} active{% endif %}" href="{{ site.baseurl }}/GLOSSARY.html">Glossary</a>
+      <a class="sidebar-nav-item{% if page.url == '/DATABASE_MANAGEMENT.html' %} active{% endif %}" href="{{ site.baseurl }}/DATABASE_MANAGEMENT.html">Database Management</a>
+      <a class="sidebar-nav-item{% if page.url == '/ISSUE_MANAGEMENT.html' %} active{% endif %}" href="{{ site.baseurl }}/ISSUE_MANAGEMENT.html">Issue Management</a>
+      <a class="sidebar-nav-item{% if page.url == '/TECHNOLOGY.html' %} active{% endif %}" href="{{ site.baseurl }}/TECHNOLOGY.html">Technology</a>
+      <a class="sidebar-nav-item{% if page.url == '/GLOSSARY.html' %} active{% endif %}" href="{{ site.baseurl }}/GLOSSARY.html">Glossary</a>
 
-      <span class="sidebar-nav-item">Archive</span>
-      <a class="sidebar-nav-item{% if page.url == "TECHNOLOGY_CHOICES.html" %} active{% endif %}" href="{{ site.baseurl }}/TECHNOLOGY_CHOICES.html">Technology Choices</a>
-      <a class="sidebar-nav-item{% if page.url == "TECHNOLOGY_SURVEY.html" %} active{% endif %}" href="{{ site.baseurl }}/TECHNOLOGY_SURVEY.html">Technology Survey</a>
-      <a class="sidebar-nav-item{% if page.url == "TOOLS_CHOICES.html" %} active{% endif %}" href="{{ site.baseurl }}/TOOLS_CHOICES.html">Tools Choices</a>
-      <a class="sidebar-nav-item{% if page.url == "CIM_61850_MAPPING_MVP.html" %} active{% endif %}" href="{{ site.baseurl }}/CIM_61850_MAPPING_MVP.html">SSD Import from CIM MVP</a>
-
-      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+      <a class="sidebar-nav-item{% if page.url == '/ARCHIVE.html' %} active{% endif %}" href="{{ site.baseurl }}/ARCHIVE.html">Archive</a>
     </nav>
 
+    <p>Currently v{{ site.version }}</p>
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>
 </div>
