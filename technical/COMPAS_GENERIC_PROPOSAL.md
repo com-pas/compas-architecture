@@ -14,9 +14,9 @@ be used in different part of the service. Below is an example out of which modul
 
 ![Component Diagram](images/CoMPAS-GenericComponent-Diagram.png)
 
-For instance the SCL Data Service has a Quarkus Rest Module, which uses the Service and Repository Module.
+For instance the SCL Data Service has a Quarkus REST Module, which uses the Service and Repository Module.
 Every module is build and published separately. These artifacts can be used in custom implementations. 
-The default runtime container will use Quarkus with a Rest Interface as implementation, but a company-specific 
+The default runtime container will use Quarkus with a REST Interface as implementation, but a company-specific 
 implementation can be build, for instance with Spring, but still uses larger parts of the module. 
 
 For instance Quarkus is using the standard Jakarta EE, so a lot of work is done out-of-the-box.
