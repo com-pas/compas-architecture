@@ -13,22 +13,14 @@ This site provides the architectural description of CoMPAS. It describes the [Fu
 General information about CoMPAS can be found [on the wiki at the LFE site](https://wiki.lfenergy.org/display/HOME/CoMPAS).
 
 ## Open Community Calls
-We hold an open community call on Monday every two weeks. The start time right now is:
+We hold an open community call on the first Monday of every month. The start time right now is:
 
-13:30-14:30 UTC
+3:30pm - 4:30pm CET
 
 If you wish to participate, please join the #community-calls channel of our LF Energy Slack (link above) shortly before each call to receive an invitation link.
 
-The notes of past community calls are also located in the #community-calls channel.
-
-The schedule for the next calls are:
-
-| |
-|-|
-|October 11 2021|
-|October 25 2021|
-|November 8 2021|
-|November 22 2021|
+The schedule for the next calls can be found in the mailing list [calendar](https://lists.lfenergy.org/g/CoMPAS/calendar).
+If you want to subscribe and stay up to date about upcoming events, consider subscribing to the [CoMPAS mailing list](https://lists.lfenergy.org/g/CoMPAS).
 
 ## Contributing
 Interested in contributing? Please read carefully the [CONTRIBUTING guidelines](https://com-pas.github.io/contributing/).
