@@ -7,11 +7,10 @@ SPDX-License-Identifier: CC-BY-4.0
 ## Functional architecture
 
 ### Introduction
-This page desribes the functional architecture of CoMPAS. CoMPAS provides software components related to IEC 61850 model implementation, specifically for profile management and configuration of a power industry Protection Automation and Control System (PACS). It describes the logical decomposition.
+This page desribes the functional architecture of CoMPAS. CoMPAS provides software components related to IEC 61850 model implementation, specifically for power system profile management and configuration of a power system Protection Automation and Control System (PACS). It describes the logical decomposition.
 
 ### The IEC61850 standard
-The IEC61850 standard describes the process and tooling for substation automation. The processes describes the designing and deploying substation automation.
-
+The IEC61850 series are  standards and documents describing the communication protocol between different equipments in a substation. It provides services and requirements for designing and deploying substation automation. It improves power quqlity, operation cost and maintenance activities within a substation.
 ![CoMPAS functional block diagram](./functional-diagrams/61850flow.png)
 
 | Process | Description |
