@@ -29,7 +29,8 @@ Generally speaking, it is a good idea to deploy one thing per container. Reasons
 * No need for a process magager
 
 
-Third party microservices can be incorporated in an end user application or can be required for CoMPAS microservices, but this is out of scope for the project.
+Third party microservices can be incorporated in an end user application or can be required for CoMPAS microservices, 
+but this is out of scope for the project.
 
 Deployment is done by the users of CoMPAS and out of scope for the project.
 
@@ -40,9 +41,11 @@ This view will be updated during time to add the new components that are build.
 ![CoMPAS Deploment View](images/CoMPAS-DeploymentView.png)
 
 The user uses a browser to open the OpenSCD editor from the CoMPAS OpenSCD Container. In this editor there are plugins
-available to use the XML REST Services from CoMPAS to open and save SCL files or use a mapper to converted files.
+available to use the XML REST Services from CoMPAS to open, save and validate SCL files or use a mapper to converted 
+files. There is also an Auto Alignment Service to position elements for the Single Line Diagram.  
 
-The SCL files are stored in a database, for instance BaseX or PostgreSQL, that uses a volume to store the data outside the container.
+The SCL files are stored in a database, for instance BaseX or PostgreSQL, that uses a volume to store the data outside 
+the container.
 
 Detailed information about the different components can be found at the follow links.
 
@@ -51,4 +54,5 @@ Detailed information about the different components can be found at the follow l
 | CoMPAS SCL Data Service   | [Repository](https://github.com/com-pas/compas-scl-data-service)   | [Documentation](https://github.com/com-pas/compas-scl-data-service/blob/main/doc/compas-scl-data-service.md)  |
 | CoMPAS OpenSCD            | [Repository](https://github.com/com-pas/compas-open-scd)           |                                                                                                               |
 | CoMPAS CIM Mapping        | [Repository](https://github.com/com-pas/compas-cim-mapping)        |                                                                                                               |
+| CoMPAS SCL Validator      | [Repository](https://github.com/com-pas/compas-scl-validator)      |                                                                                                               |
 | CoMPAS SCL Auto Alignment | [Repository](https://github.com/com-pas/compas-scl-auto-alignment) |                                                                                                               |
