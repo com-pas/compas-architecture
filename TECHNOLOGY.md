@@ -12,7 +12,7 @@ This page lists the technologies and tools chosen for the project
 
 # Technology Choices
 ## Programming language - Java
-Java 11 is chosen as programming language. 
+Java 17 is chosen as programming language. 
 - Java is well known in the energy sector
 - Developers are available
 - Java is familiar within LFE projects
