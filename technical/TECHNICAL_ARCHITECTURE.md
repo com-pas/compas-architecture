@@ -18,15 +18,15 @@ The diagram above shows the deployment view. Blue components are within scope of
 
 The result of the CI/CD is a **Container Image** in the Docker Registry. A **Container Image** contains one **CoMPAS microservice**. More than one CoMPAS microservice may be present in the image only if they are closely related and should be deployed and scaled together.
 
-As part of the CI/CD proces a security scan is performed on the source code. The **Container Image**s must be signed and are the formal deliveries of the CoMPAS project.
+As part of the CI/CD process a security scan is performed on the source code. The **Container Image**s must be signed and are the formal deliveries of the CoMPAS project.
 
-In the deployment proces the **Container image** is deployed together with its dependencies (for example a database) in an **Application**. This deployment takes place using *Docker Compose*. For this a **docker compose yaml** file is supplied that deploys the application using Docker Compose.
+In the deployment process the **Container image** is deployed together with its dependencies (for example a database) in an **Application**. This deployment takes place using *Docker Compose*. For this a **docker compose yaml** file is supplied that deploys the application using Docker Compose.
 
 Generally speaking, it is a good idea to deploy one thing per container. Reasons:
 * Independent scaling: APIs scale differently than databases
 * Independent update: update in isolation
 * Supports different environments: a containerized database locally while managed service in production
-* No need for a process magager
+* No need for a process manager
 
 
 Third party microservices can be incorporated in an end user application or can be required for CoMPAS microservices, 
@@ -38,7 +38,7 @@ Deployment is done by the users of CoMPAS and out of scope for the project.
 Below describes the current deployment view of the CoMPAS containers that are available.
 This view will be updated during time to add the new components that are build.
 
-![CoMPAS Deploment View](images/CoMPAS-DeploymentView.png)
+![CoMPAS Deployment View](images/CoMPAS-DeploymentView.png)
 
 The user uses a browser to open the OpenSCD editor from the CoMPAS OpenSCD Container. In this editor there are plugins
 available to use the XML REST Services from CoMPAS to open, save and validate SCL files or use a mapper to converted 

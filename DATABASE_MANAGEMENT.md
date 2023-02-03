@@ -100,7 +100,7 @@ A Database-server-per-service pattern helps ensure that the services are lossely
 
 The CIM - IEC 61850 service for example get's their own database. If another service wants to get SCD files from this service, use the API of that particular service.
 
-### Where do we set the user privelages of Basex?
+### Where do we set the user privileges of Basex?
 Basex has it's own [User Management](https://docs.basex.org/wiki/User_Management).
 
 It's pretty straight forward: Basex has Users that can be created. These users can have so-called permissions that can be applied to the user:
@@ -109,7 +109,7 @@ It's pretty straight forward: Basex has Users that can be created. These users c
 In this overview, we see 'Global' permissions and 'Local' permissions.
 In both permission groups, a higher permission includes all lower permissions. So a user with the 'Create' permission also has the 'Read' permission.
 
-All permissions are stored in a file called users.xml (which can be editted manually) inside the database directory, and is being parsed once BaseX is started.
+All permissions are stored in a file called users.xml (which can be edited manually) inside the database directory, and is being parsed once BaseX is started.
 
 ### How do we connect BaseX with a central identity repository/application?
 BaseX doesn't have compatibility with a central identity repository (like Keycloak) out of the box available, but after discussing it with the BaseX community it's pretty comfortable to achieve this with RESTXQ or xQuery. There are examples available for making use of Keycloak:
@@ -141,7 +141,7 @@ This way it's easier to get the cause.
 ### W3 PROV
 Provenance is information about entities, activities, and people involved in producing a piece of data or thing, which can be used to form assessments about its quality, reliability or trustworthiness. The PROV Family of Documents defines a model, corresponding serializations and other supporting definitions to enable the inter-operable interchange of provenance information in heterogeneous environments such as the Web. This document provides an overview of this family of documents. (https://www.w3.org/TR/prov-overview/#Abstract)
 
-W3C does have a full standard for extending files with provenance information, in such a way that it's standardized and it enables the interchangable of provenance information in environments such as, in our case, XML environments. The design of PROV is based on the recommendations of the [Provenance Incubator Group](https://www.w3.org/2005/Incubator/prov/charter).
+W3C does have a full standard for extending files with provenance information, in such a way that it's standardized and it enables the interchangeable of provenance information in environments such as, in our case, XML environments. The design of PROV is based on the recommendations of the [Provenance Incubator Group](https://www.w3.org/2005/Incubator/prov/charter).
 
 ### W3 PROV-XML
 One of the documents of W3 PROV is PROV-XML. This document converts the PROV standard to XML definitions, and is what we want.
@@ -162,7 +162,7 @@ This is how we can interpret a edit on a XML file: as an activity.
 
 An activity has a start- and endtime. In our case, that can be the period from opening the file to saving the file. It has a type or activity, which will most of the time be an Edit.
 
-And a set of extra attributes can be added. In the added example, an hostname is added. In our case that's not very handy, because if CoMPAS is runned locally, the hostname doesn't say that much. What makes the most sense at this point is adding a User attribute which is linked to the future oAuth 2.0 authorisation/authentication module.
+And a set of extra attributes can be added. In the added example, an hostname is added. In our case that's not very handy, because if CoMPAS is ran locally, the hostname doesn't say that much. What makes the most sense at this point is adding a User attribute which is linked to the future oAuth 2.0 authorisation/authentication module.
 
 Example of added PROV section. The UserID attribute is a simplified attribute for identifying the entity doing the activity:
 ```xml
