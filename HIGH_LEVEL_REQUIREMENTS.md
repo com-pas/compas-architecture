@@ -25,7 +25,7 @@ Together with the Technical Architecture, it should be possible to make the corr
 ### IEC-61850 SCL verification
  - Conformity verification of System Configuration description Language (SCL) files
 
-### System specitifcation
+### System specification
  - profile to “System Specification Description (SSD)” conversion
  - PACS policy registry (scripts?)
  - API to vendor specific “IED Capability Description (ICD)” tools (not in direct scope, Nice To)

@@ -25,7 +25,7 @@ Microservices are deployed as Linux based Docker container. Advantages of deploy
 
 - Deployment is independent of deployment platform/OS
 - Well supported for cloud deployment
-- Tooling readily availabe
+- Tooling readily available
 - Open source
 - Scalable, redundant
 - Images can be distributed easily
@@ -140,17 +140,17 @@ Because CoMPAS is an application which also should run locally, memory usage is 
 - Relatively new technology, framework could contain some "rookie mistakes". On the other hand, multiple researches are stating the maturity of the framework it achieved in this short time.
 - Not many developers are acquainted with Quarkus compared to e.g. the [Spring framework](https://spring.io/).
 
-## Source control - Github
-We choose github for source control. This is good practice for open source development. 
+## Source control - GitHub
+We choose GitHub for source control. This is good practice for open source development. 
 The CoMPAS repositories can be found at [https://github.com/com-pas/](https://github.com/com-pas/) 
 
-## CI/CD - Github actions
-We choose [Github Actions](https://github.com/features/actions) as mechanism for CI/CD. 
+## CI/CD - GitHub actions
+We choose [GitHub Actions](https://github.com/features/actions) as mechanism for CI/CD. 
 
 **Pros**
 - Upcoming tool, really active in developing
-- Free tool for public Github repositories (which CoMPAS is)
-- Integrates perfectly with Github repositories
+- Free tool for public GitHub repositories (which CoMPAS is)
+- Integrates perfectly with GitHub repositories
 
 **Cons**
 - Software is proprietary
@@ -159,8 +159,8 @@ We choose [Github Actions](https://github.com/features/actions) as mechanism for
 
 
 # Tool advise
-This section lists the development tooling that is *advised*. Of course developers are free to use their own developement tooling
+This section lists the development tooling that is *advised*. Of course developers are free to use their own development tooling
 
 ## SDE - Microsoft Visual Studio Code
-[Microsoft Visual Studio Code](https://code.visualstudio.com/) is a versatile develpment environment supporting many languages. 
+[Microsoft Visual Studio Code](https://code.visualstudio.com/) is a versatile development environment supporting many languages. 
 

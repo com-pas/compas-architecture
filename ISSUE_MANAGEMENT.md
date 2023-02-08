@@ -5,10 +5,10 @@ SPDX-License-Identifier: CC-BY-4.0
 -->
 
 ## Issue Management
-For issue management we are using the issue tracker in Github. Issues are created in the repository where there are related to.<br/>
+For issue management we are using the issue tracker in GitHub. Issues are created in the repository where there are related to.<br/>
 Issues that concern the whole CoMPAS project are added as issue in the repository "compas-architecture". Later these maybe be move to the correct repository.  
 
-To get an overview of all the issues we are using the project board in Github.
+To get an overview of all the issues we are using the project board in GitHub.
 There are two overview board on organisation level to monitor all the issues and pull request in the different repositories.
 One for the issues, CoMPAS Issues Overview Board and one for the pull requests, CoMPAS Pull Request Overview Board.
 Every repository that can contain issues and pull request are linked to these two project boards.
@@ -39,8 +39,8 @@ Now we need to link the new repository to both Project Boards. Repeat the follow
 Don't open the board, but under "..." (end of row) select "Settings". Next go to "Linked repositories" and link the new repository using the button "Link a repository".
 the repository is now shown in the list of linked repositories.Now it's possible to also added issues and pull request to the board.
 
-### Add Github Action 
-To automatically adding issues and pull request to a project board we add a github action for that. 
+### Add GitHub Action 
+To automatically adding issues and pull request to a project board we add a GitHub action for that. 
 In the repository create a file "automate_projects.yml" in the directory ".github/workflows" containing the following source code: 
 
 ```yaml
@@ -81,7 +81,7 @@ jobs:
           GITHUB_PROJECT_URL: https://github.com/orgs/com-pas/projects/2 #(3)
           GITHUB_PROJECT_COLUMN_NAME: To do
 ```
-The github action exists of 4 steps. 
+The GitHub action exists of 4 steps. 
 - (Step 1): Add new issues to the project board of the repository.
 - (Step 2): Add new pull requests to the project board of the repository.
 - (Step 3): Add new issues to the organisation project board "CoMPAS Issues Overview Board".
@@ -115,7 +115,7 @@ Project board "CoMPAS Pull Request Overview Board":
 |                              | Pending approval by reviewer                |                                                    |
 
 ### Adding Action Secret ORG_GITHUB_ACTION_SECRET
-Tot access the project boards of the organization a secret ORG_GITHUB_ACTION_SECRET needs to be created.
+To access the project boards of the organization a secret ORG_GITHUB_ACTION_SECRET needs to be created.
 - First create a new personal access token from https://github.com/settings/tokens. Tokens can only be created as personal tokens.
   The token also must have the right "admin:org". This will indirectly also set the right "write:org" and "read:org". 
 - Next create a new organisation secret from https://github.com/organizations/com-pas/settings/secrets/actions with the value of 

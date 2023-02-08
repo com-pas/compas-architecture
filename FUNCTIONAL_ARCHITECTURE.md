@@ -7,20 +7,20 @@ SPDX-License-Identifier: CC-BY-4.0
 ## Functional architecture
 
 ### Introduction
-This page desribes the functional architecture of CoMPAS. CoMPAS provides software components related to IEC 61850 model implementation, specifically for power system profile management and configuration of a power system Protection Automation and Control System (PACS). It describes the logical decomposition.
+This page describes the functional architecture of CoMPAS. CoMPAS provides software components related to IEC 61850 model implementation, specifically for power system profile management and configuration of a power system Protection Automation and Control System (PACS). It describes the logical decomposition.
 
 ### The IEC61850 standard
-The IEC61850 series are  standards and documents describing the communication protocol between different equipments in a substation. It provides services and requirements for designing and deploying substation automation. It improves power quqlity, operation cost and maintenance activities within a substation.
+The IEC61850 series are  standards and documents describing the communication protocol between different equipments in a substation. It provides services and requirements for designing and deploying substation automation. It improves power quality, operation cost and maintenance activities within a substation.
 ![CoMPAS functional block diagram](./functional-diagrams/61850flow.png)
 
 | Process | Description |
 | --- | --- |
 | **Specify IED** | With this process the Utility specifies the required IED in an ISD file. This profile is input for the manufacturer to deliver the required IED |
 | **Specify Substation System** | With this process the Utility specifies the substation system in an SSD file. For example, this specification may be done based on CIM data existing with the Utility |
-| **Configuration Substation System** | With this process the Utility configures the substation. This results in the SCD file. Aditional inputs for this process are the IID file (IED configuration) and SED file (interfacing with other projects) |
-| **Configure IED** | The process of configuring the IED. This results in an instantiated IED IID file. The process is manufacturer specific. It results in either an ICD file or IID file. It is used to convert the SCD to a manufacturer specfic CID file to be sent to the IED |
+| **Configuration Substation System** | With this process the Utility configures the substation. This results in the SCD file. Additional inputs for this process are the IID file (IED configuration) and SED file (interfacing with other projects) |
+| **Configure IED** | The process of configuring the IED. This results in an instantiated IED IID file. The process is manufacturer specific. It results in either an ICD file or IID file. It is used to convert the SCD to a manufacturer specific CID file to be sent to the IED |
 | **Test** | The fully configured IED can be tested against the SCD and SSD files |
-| **Convert CIM/GIS to IEC61850 SLD** | CIM or GIS can te used to convert to 61850 configuration files |
+| **Convert CIM/GIS to IEC61850 SLD** | CIM or GIS can be used to convert to 61850 configuration files |
 
 Refer to the [Glossary](GLOSSARY.md) for the abbreviations and various 61850 file types.
 
@@ -49,7 +49,7 @@ _**More services to be added**_
 ### Microservice architecture
 CoMPAS will consist of a number of microservices that can be used to build substation configuration tools according to IEC61850. In this situation a microservice architecture is chosen because of
 * CoMPAS will provide reusable components
-* The development will be open source, therefore by multiple development teams. Since microservices are loosly coupled and independent this will fit.
+* The development will be open source, therefore by multiple development teams. Since microservices are loosely coupled and independent this will fit.
 * Microservices are independently deployable and testable
 
 ![Microservice architecture](./functional-diagrams/microservice.png)
