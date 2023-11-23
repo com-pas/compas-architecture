@@ -1,2 +1,5 @@
+# SPDX-FileCopyrightText: 2023 Alliander N.V.
+#
+# SPDX-License-Identifier: CC-BY-4.0
 optConfig:
   optOut: true
