@@ -27,3 +27,7 @@ The diagrams on this page are created using [DrawIO](https://github.com/jgraph/d
 and follow [Unified Modeling Language (UML)](https://www.omg.org/spec/UML/). 
 The drawIO design file is available on this site: [/blob-files/CoMPAS.drawio](blob-files/CoMPAS.drawio). 
 Modification made to UML diagrams on this site must be made in this file and the modified file must be part of the pull request.
+
+## Contributing
+
+Please refer to the [CoMPAS Contributing Guide](https://com-pas.github.io/contributing/) for contribution guidelines.
