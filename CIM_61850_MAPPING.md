@@ -7,7 +7,7 @@ SPDX-License-Identifier: CC-BY-4.0
 ## Mapping CIM - IEC 61850
 
 We got a mapping example from RTE, they already created a mapping between CIM files and IEC 61850 files.
-We used the IEC 623610-102 standard to compare it with the example we got from RTE.
+We used the IEC 62361-102 standard to compare it with the example we got from RTE.
 
 The goal is to compare a few components, to see if we are able to say: We can use this mapping!
 This way, we don't have to figure it all out ourselves.
@@ -40,7 +40,7 @@ VoltageLevel
 - whole 'Tapchanger' SCL element mapping
 
 ## Questions
-- the open_substation.scd file contains a SCL section. Is this considered the header? (Because it has stuff like version and revision in it)
+- the open_substation.scd file contains an SCL section. Is this considered the header? (Because it has stuff like version and revision in it)
 - What to do with the Header section of an SCL file? Create a new one?
 
 ## Conclusion
