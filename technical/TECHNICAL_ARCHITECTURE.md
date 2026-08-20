@@ -44,6 +44,8 @@ The user uses a browser to open the OpenSCD editor from the CoMPAS OpenSCD Conta
 available to use the XML REST Services from CoMPAS to open, save and validate SCL files or use a mapper to converted 
 files. There is also an Auto Alignment Service to position elements for the Single Line Diagram.  
 
+**CoMPAS OpenSCD** is no longer a fork of [OpenSCD](https://github.com/openscd/open-scd). Instead, `open-scd` develops and publishes its OpenSCD-specific packages (`core`, `xml`, `openscd`, `plugins`) to npm, and `compas-open-scd` consumes those packages as npm dependencies, adding only its own CoMPAS-specific code on top. Each repository manages its own versioning/release cycle: `open-scd` releases the OpenSCD packages independently, while `compas-open-scd` pins the OpenSCD package versions it consumes and follows its own CoMPAS release cycle. `open-scd` also maintains its own distribution package for local development, independent of the npm-published packages.
+
 The SCL files are stored in a database, for instance BaseX or PostgreSQL, that uses a volume to store the data outside 
 the container.
 
@@ -52,7 +54,7 @@ Detailed information about the different components can be found at the follow l
 | Component                 |                                                                    |                                                                                                               |
 |---------------------------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
 | CoMPAS SCL Data Service   | [Repository](https://github.com/com-pas/compas-scl-data-service)   | [Documentation](https://github.com/com-pas/compas-scl-data-service/blob/main/doc/compas-scl-data-service.md)  |
-| CoMPAS OpenSCD            | [Repository](https://github.com/com-pas/compas-open-scd)           |                                                                                                               |
+| CoMPAS OpenSCD            | [Repository](https://github.com/com-pas/compas-open-scd)           | Consumes the [OpenSCD](https://github.com/com-pas/open-scd) packages as npm dependencies.                    |
 | CoMPAS CIM Mapping        | [Repository](https://github.com/com-pas/compas-cim-mapping)        |                                                                                                               |
 | CoMPAS SCL Validator      | [Repository](https://github.com/com-pas/compas-scl-validator)      |                                                                                                               |
 | CoMPAS SCL Auto Alignment | [Repository](https://github.com/com-pas/compas-scl-auto-alignment) |                                                                                                               |
