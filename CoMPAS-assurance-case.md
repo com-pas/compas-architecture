@@ -6,7 +6,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # CoMPAS basic Assurance Case
 
-In June 2026, a basic Threat Model Assessment of CoMPAS OpenSCD was conducted by Schielder IT. CoMPAS OpenSCD is a browser-based editor for IEC 61850-6 System Configuration Language (SCL) files, used to design and configure substation automation systems in the electrical power industry.
+In June 2026, a basic Threat Model Assessment of CoMPAS OpenSCD was conducted by Shielder IT. CoMPAS OpenSCD is a browser-based editor for IEC 61850-6 System Configuration Language (SCL) files, used to design and configure substation automation systems in the electrical power industry.
 
 SCL is an XML-based format that describes which Intelligent Electronic Devices (IEDs) are present in a substation, how they are connected, and what data they exchange. SCL files (`.icd`, `.iid`, `.scd`, `.ssd`, `.sed`, `.cid`) are widely used among vendors and integrators. Since these files are frequently produced or edited by multiple, mutually untrusting parties before being imported into a tool such as CoMPAS OpenSCD, an SCL document itself represents a realistic attacker-controlled input.
 
