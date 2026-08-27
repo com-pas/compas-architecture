@@ -9,7 +9,7 @@ tagline:          'Architecture of the CoMPAS project'
 paginate:         5
 
 # Custom vars
-version:          0.0.2
+version:          0.0.3
 
 github:
   repo:           https://github.com/com-pas/compas-architecture
